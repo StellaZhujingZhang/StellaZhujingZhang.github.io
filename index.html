@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Personal Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fdfdfd;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: normal;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+
+        /* Navigation */
+        nav {
+            margin: 30px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #34495e;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: #ecf0f1;
+        }
+
+        /* Main Content */
+        .content-section {
+            margin-bottom: 50px;
+        }
+
+        .content-section.hidden {
+            display: none;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 10px;
+        }
+
+        /* About Section */
+        .about-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .contact-info p {
+            margin-bottom: 8px;
+        }
+
+        /* Publications Section */
+        .publication {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+        }
+
+        .pub-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .pub-authors {
+            color: #7f8c8d;
+            margin-bottom: 5px;
+            font-style: italic;
+        }
+
+        .pub-venue {
+            color: #27ae60;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .pub-description {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .pub-links {
+            margin-top: 10px;
+        }
+
+        .pub-links a {
+            color: #3498db;
+            text-decoration: none;
+            margin-right: 15px;
+            font-size: 0.9em;
+            padding: 4px 8px;
+            border: 1px solid #3498db;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .pub-links a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+
+        /* Portfolio Section */
+        .project {
+            margin-bottom: 35px;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .project-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .project-tech {
+            color: #e74c3c;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .project-description {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .project-links {
+            margin-top: 15px;
+        }
+
+        .project-links a {
+            color: #2980b9;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Writing Section */
+        .writing-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .writing-item:last-child {
+            border-bottom: none;
+        }
+
+        .writing-title {
+            font-size: 1.2em;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .writing-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .writing-title a:hover {
+            color: #3498db;
+        }
+
+        .writing-date {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+
+        .writing-excerpt {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .pub-links a {
+                display: inline-block;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Your Name</h1>
+            <p class="subtitle">PhD Student in Computer Science | Researcher | Developer</p>
+            
+            <nav>
+                <ul>
+                    <li><a href="#about" class="nav-link active">About</a></li>
+                    <li><a href="#publications" class="nav-link">Publications</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#writing" class="nav-link">Writing</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- About Section -->
+            <section id="about" class="content-section">
+                <h2>About</h2>
+                <div class="about-content">
+                    <p>Welcome to my personal website! I am a PhD student in Computer Science with a focus on machine learning and artificial intelligence. My research interests include natural language processing, computer vision, and human-computer interaction.</p>
+                    
+                    <p>I am passionate about developing innovative solutions that bridge the gap between theoretical research and practical applications. When I'm not coding or writing papers, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge through blog posts and tutorials.</p>
+                    
+                    <p>I hold a Master's degree in Computer Science from [University Name] and have published several papers in top-tier conferences. I am currently working on my dissertation under the supervision of [Advisor Name].</p>
+                </div>
+
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><strong>Email:</strong> your.email@university.edu</p>
+                    <p><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/yourname</a></p>
+                    <p><strong>GitHub:</strong> <a href="#">github.com/yourusername</a></p>
+                    <p><strong>Google Scholar:</strong> <a href="#">scholar.google.com/citations?user=...</a></p>
+                </div>
+            </section>
+
+            <!-- Publications Section -->
+            <section id="publications" class="content-section hidden">
+                <h2>Publications</h2>
+                
+                <div class="publication">
+                    <div class="pub-title">Deep Learning Approaches for Natural Language Understanding</div>
+                    <div class="pub-authors">Your Name, Co-Author Name, Senior Author</div>
+                    <div class="pub-venue">Conference on Neural Information Processing Systems (NeurIPS), 2024</div>
+                    <div class="pub-description">
+                        This paper presents novel deep learning architectures for improved natural language understanding, achieving state-of-the-art results on multiple benchmark datasets.
+                    </div>
+                    <div class="pub-links">
+                        <a href="#">PDF</a>
+                        <a href="#">Code</a>
+                        <a href="#">BibTeX</a>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">Multimodal Learning for Human-Computer Interaction</div>
+                    <div class="pub-authors">Your Name, Research Partner, Advisor Name</div>
+                    <div class="pub-venue">ACM Conference on Human Factors in Computing Systems (CHI), 2024</div>
+                    <div class="pub-description">
+                        We explore multimodal learning techniques that combine visual and textual information to improve human-computer interaction systems.
+                    </div>
+                    <div class="pub-links">
+                        <a href="#">PDF</a>
+                        <a href="#">Demo</a>
+                        <a href="#">Dataset</a>
+                    </div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">Efficient Training Methods for Large Language Models</div>
+                    <div class="pub-authors">Your Name, Collaborator A, Collaborator B</div>
+                    <div class="pub-venue">International Conference on Machine Learning (ICML), 2023</div>
+                    <div class="pub-description">
+                        This work introduces novel training optimization techniques that reduce computational costs while maintaining model performance for large language models.
+                    </div>
+                    <div class="pub-links">
+                        <a href="#">PDF</a>
+                        <a href="#">Code</a>
+                        <a href="#">Slides</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Portfolio Section -->
+            <section id="portfolio" class="content-section hidden">
+                <h2>Portfolio</h2>
+                
+                <div class="project">
+                    <div class="project-title">AI-Powered Research Assistant</div>
+                    <div class="project-tech">Python, TensorFlow, React, FastAPI</div>
+                    <div class="project-description">
+                        Developed an intelligent research assistant that helps researchers discover relevant papers, summarize content, and identify research gaps using advanced NLP techniques.
+                    </div>
+                    <div class="project-links">
+                        <a href="#">Live Demo</a>
+                        <a href="#">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-title">Multimodal Data Visualization Tool</div>
+                    <div class="project-tech">JavaScript, D3.js, Python, Flask</div>
+                    <div class="project-description">
+                        Created an interactive visualization tool for exploring multimodal datasets, featuring real-time updates and collaborative features for research teams.
+                    </div>
+                    <div class="project-links">
+                        <a href="#">Live Demo</a>
+                        <a href="#">GitHub</a>
+                        <a href="#">Documentation</a>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-title">Open Source ML Library</div>
+                    <div class="project-tech">Python, PyTorch, NumPy, Scikit-learn</div>
+                    <div class="project-description">
+                        Contributed to and maintained an open-source machine learning library focused on interpretability and fairness in AI systems, with over 1,000 GitHub stars.
+                    </div>
+                    <div class="project-links">
+                        <a href="#">GitHub</a>
+                        <a href="#">Documentation</a>
+                        <a href="#">PyPI</a>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-title">Educational Platform for AI Ethics</div>
+                    <div class="project-tech">Vue.js, Node.js, MongoDB, Docker</div>
+                    <div class="project-description">
+                        Built an educational platform that teaches AI ethics through interactive case studies and simulations, used by over 500 students across multiple universities.
+                    </div>
+                    <div class="project-links">
+                        <a href="#">Live Demo</a>
+                        <a href="#">GitHub</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Writing Section -->
+            <section id="writing" class="content-section hidden">
+                <h2>Writing</h2>
+                
+                <div class="writing-item">
+                    <div class="writing-title">
+                        <a href="#">The Future of Human-AI Collaboration</a>
+                    </div>
+                    <div class="writing-date">March 15, 2024</div>
+                    <div class="writing-excerpt">
+                        Exploring how advances in AI technology are reshaping the way humans and machines work together, and what this means for the future of work and creativity.
+                    </div>
+                </div>
+
+                <div class="writing-item">
+                    <div class="writing-title">
+                        <a href="#">Understanding Bias in Machine Learning Models</a>
+                    </div>
+                    <div class="writing-date">February 8, 2024</div>
+                    <div class="writing-excerpt">
+                        A comprehensive guide to identifying, measuring, and mitigating bias in machine learning systems, with practical examples and code snippets.
+                    </div>
+                </div>
+
+                <div class="writing-item">
+                    <div class="writing-title">
+                        <a href="#">From Research to Production: Lessons Learned</a>
+                    </div>
+                    <div class="writing-date">January 20, 2024</div>
+                    <div class="writing-excerpt">
+                        Reflecting on the challenges and insights gained from transitioning machine learning research prototypes into production systems.
+                    </div>
+                </div>
+
+                <div class="writing-item">
+                    <div class="writing-title">
+                        <a href="#">The Importance of Reproducible Research</a>
+                    </div>
+                    <div class="writing-date">December 5, 2023</div>
+                    <div class="writing-excerpt">
+                        Discussing best practices for ensuring research reproducibility in the age of complex machine learning models and large datasets.
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Your Name. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.content-section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all nav links
+                    navLinks.forEach(nl => nl.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Hide all sections
+                    sections.forEach(section => section.classList.add('hidden'));
+                    
+                    // Show target section
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
