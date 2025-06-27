@@ -163,6 +163,95 @@
             color: white;
         }
 
+        /* CV Sections */
+        .cv-section {
+            margin: 40px 0;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .cv-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .cv-section h3 {
+            font-size: 1.4em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .cv-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+        }
+
+        .cv-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .cv-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+            flex-wrap: wrap;
+        }
+
+        .cv-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .cv-date {
+            color: #7f8c8d;
+            font-size: 0.95em;
+            font-weight: normal;
+        }
+
+        .cv-institution {
+            color: #34495e;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .cv-detail {
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .cv-bullets {
+            margin: 10px 0 0 20px;
+            color: #555;
+        }
+
+        .cv-bullets li {
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .skill-category h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .skill-category p {
+            color: #555;
+            line-height: 1.6;
+        }
+
         /* Publications Section */
         .publications-header {
             margin-bottom: 30px;
@@ -317,6 +406,20 @@
             .profile-image {
                 margin: 0 auto;
             }
+
+            .cv-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cv-date {
+                margin-top: 5px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
         }
 
         @media (max-width: 600px) {
@@ -366,11 +469,112 @@
                         Add your profile photo here
                     </div>
                     <div class="about-content">
-                        <p>Welcome to my personal website! I am a PhD candidate in Civil and Environmental Engineering at École Polytechnique Fédérale de Lausanne (EPFL), working under the supervision of Prof. Marilyne Andersen. My research focuses on biophilic design, light patterns, and human responses to environmental design.</p>
+                        <p>I am a PhD candidate in Civil and Environmental Engineering at École Polytechnique Fédérale de Lausanne (EPFL), working under the supervision of Prof. Marilyne Andersen. My research focuses on the intersection of biophilic design, light patterns, and human responses to environmental design elements.</p>
                         
-                        <p>As both a designer and researcher, I am passionate about understanding how architectural and environmental design elements influence human well-being and behavior. My work explores innovative approaches to creating spaces that enhance human connection with nature through thoughtful integration of light, views, and biophilic elements.</p>
-                        
-                        <p>My research particularly investigates Komorebi light patterns - the interplay of light and shadow created by leaves - and their potential benefits for human psychological and physiological responses in built environments. I hold a Master of Architecture degree from MIT, where I developed systems for embedding dappled sunlight phenomena in built environments.</p>
+                        <p>My doctoral thesis, "From Komorebi to Shading: View and Light Patterns Through Shading Systems with Spatial and Temporal Dynamics," explores how dynamic light and shadow patterns can enhance human well-being in built environments. I am particularly interested in developing spatio-temporal metrics for Komorebi light patterns and investigating their relationship to human psychological and physiological responses.</p>
+                    </div>
+                </div>
+
+                <div class="cv-section">
+                    <h3>Education</h3>
+                    <div class="cv-item">
+                        <div class="cv-header">
+                            <span class="cv-title">PhD in Civil and Environmental Engineering</span>
+                            <span class="cv-date">Sep 2022 - Present</span>
+                        </div>
+                        <div class="cv-institution">École Polytechnique Fédérale de Lausanne (EPFL) — Lausanne, Switzerland</div>
+                        <div class="cv-detail">Thesis: "From Komorebi to Shading: View and Light Patterns Through Shading Systems with Spatial and Temporal Dynamics"</div>
+                    </div>
+                    
+                    <div class="cv-item">
+                        <div class="cv-header">
+                            <span class="cv-title">Master of Science in Building Technology</span>
+                            <span class="cv-date">Sep 2020 - May 2022</span>
+                        </div>
+                        <div class="cv-institution">Massachusetts Institute of Technology (MIT) — Cambridge, MA, USA</div>
+                    </div>
+                    
+                    <div class="cv-item">
+                        <div class="cv-header">
+                            <span class="cv-title">Master of Architecture</span>
+                            <span class="cv-date">Sep 2016 - Feb 2020</span>
+                        </div>
+                        <div class="cv-institution">Massachusetts Institute of Technology (MIT) — Cambridge, MA, USA</div>
+                    </div>
+                    
+                    <div class="cv-item">
+                        <div class="cv-header">
+                            <span class="cv-title">Bachelor of Science in Architecture</span>
+                            <span class="cv-date">Sep 2011 - Apr 2015</span>
+                        </div>
+                        <div class="cv-institution">University of Michigan — Ann Arbor, MI, USA</div>
+                        <div class="cv-detail">Wallenberg Thesis Award, University Honor</div>
+                    </div>
+                </div>
+
+                <div class="cv-section">
+                    <h3>Research Experience</h3>
+                    <div class="cv-item">
+                        <div class="cv-header">
+                            <span class="cv-title">PhD Researcher</span>
+                            <span class="cv-date">2022 - Present</span>
+                        </div>
+                        <div class="cv-institution">EPFL Laboratory of Integrated Performance in Design (LIPID) — Lausanne, Switzerland</div>
+                        <ul class="cv-bullets">
+                            <li>Developing spatio-temporal metrics for Komorebi light patterns and exploring their relation to human responses</li>
+                            <li>Investigating shading systems for view filtering and indoor well-being</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cv-item">
+                        <div class="cv-header">
+                            <span class="cv-title">Research Assistant</span>
+                            <span class="cv-date">2020 - 2022</span>
+                        </div>
+                        <div class="cv-institution">MIT School of Architecture and Planning — Cambridge, MA, USA</div>
+                        <ul class="cv-bullets">
+                            <li>Researched neighborhood peak load and thermal comfort optimization</li>
+                            <li>Developed machine learning models as surrogates for physics-based simulations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cv-item">
+                        <div class="cv-header">
+                            <span class="cv-title">Research Assistant</span>
+                            <span class="cv-date">2014 - 2015</span>
+                        </div>
+                        <div class="cv-institution">University of Michigan — Ann Arbor, MI, USA</div>
+                        <ul class="cv-bullets">
+                            <li>Developed robotic manipulation methods for fabric-formed architectural modeling</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cv-section">
+                    <h3>Professional Experience</h3>
+                    <div class="cv-item">
+                        <div class="cv-header">
+                            <span class="cv-title">Architect</span>
+                            <span class="cv-date">2015 - 2016</span>
+                        </div>
+                        <div class="cv-institution">Myefski Architects — Evanston, IL, USA</div>
+                        <ul class="cv-bullets">
+                            <li>Contributed to residential and commercial design development</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cv-section">
+                    <h3>Key Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Research</h4>
+                            <p>Light simulation, EnergyPlus, Climate Studio, Machine learning, Statistical analysis, Image processing, Optimization, Human response assessment</p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Design</h4>
+                            <p>Rhino, Grasshopper, Digital fabrication, Adobe Creative Suite, Physical prototyping, Parametric design</p>
+                        </div>
                     </div>
                 </div>
 
@@ -382,7 +586,7 @@
                     <p><strong>Laboratory:</strong> Laboratory of Integrated Performance in Design (LIPID)</p>
                     <p><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/stella-zhujing-zhang</a></p>
                     
-                    <a href="/cv.pdf" class="cv-download" download>Download CV</a>
+                    <a href="/cv.pdf" class="cv-download" download>Download Full CV</a>
                 </div>
             </section>
 
@@ -413,7 +617,6 @@
                             <a href="https://doi.org/10.1080/19401493.2023.2180538">https://doi.org/10.1080/19401493.2023.2180538</a>
                         </div>
                     </div>
-
 
                     <div class="publication">
                         <div class="pub-authors">
