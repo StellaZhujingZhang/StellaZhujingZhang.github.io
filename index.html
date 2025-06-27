@@ -96,10 +96,38 @@
         }
 
         /* About Section */
+        .about-layout {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #ecf0f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            text-align: center;
+            border: 3px solid #bdc3c7;
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
         .about-content {
             font-size: 1.1em;
             line-height: 1.8;
-            margin-bottom: 30px;
         }
 
         .contact-info {
@@ -107,6 +135,7 @@
             padding: 20px;
             border-radius: 8px;
             margin-top: 30px;
+            grid-column: 1 / -1;
         }
 
         .contact-info h3 {
@@ -118,20 +147,25 @@
             margin-bottom: 8px;
         }
 
+        .cv-download {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cv-download:hover {
+            background-color: #2980b9;
+            color: white;
+        }
+
         /* Publications Section */
         .publications-header {
-            margin-bottom: 20px;
-        }
-
-        .pub-links-header {
-            font-size: 0.95em;
-            color: #7f8c8d;
-            margin-bottom: 25px;
-        }
-
-        .pub-links-header a {
-            color: #3498db;
-            text-decoration: none;
+            margin-bottom: 30px;
         }
 
         .pub-section {
@@ -274,6 +308,17 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-layout {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-image {
+                margin: 0 auto;
+            }
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 20px 15px;
@@ -298,7 +343,7 @@
     <div class="container">
         <header>
             <h1>Stella Zhujing Zhang</h1>
-            <p class="subtitle">PhD Student in Civil and Environmental Engineering<br>Designer | Researcher</p>
+            <p class="subtitle">PhD Candidate in Civil and Environmental Engineering<br>Designer | Researcher</p>
             <p class="affiliation">École Polytechnique Fédérale de Lausanne (EPFL)<br>Under supervision of Prof. Marilyne Andersen</p>
             
             <nav>
@@ -314,21 +359,30 @@
             <!-- About Section -->
             <section id="about" class="content-section">
                 <h2>About</h2>
-                <div class="about-content">
-                    <p>Welcome to my personal website! I am a PhD student in Civil and Environmental Engineering at École Polytechnique Fédérale de Lausanne (EPFL), working under the supervision of Prof. Marilyne Andersen. My research focuses on biophilic design, light patterns, and human responses to environmental design.</p>
-                    
-                    <p>As both a designer and researcher, I am passionate about understanding how architectural and environmental design elements influence human well-being and behavior. My work explores innovative approaches to creating spaces that enhance human connection with nature through thoughtful integration of light, views, and biophilic elements.</p>
-                    
-                    <p>My research particularly investigates Komorebi light patterns - the interplay of light and shadow created by leaves - and their potential benefits for human psychological and physiological responses in built environments.</p>
+                <div class="about-layout">
+                    <div class="profile-image">
+                        <!-- To add your photo, replace this div with: -->
+                        <!-- <img src="path/to/your/photo.jpg" alt="Stella Zhujing Zhang"> -->
+                        Add your profile photo here
+                    </div>
+                    <div class="about-content">
+                        <p>Welcome to my personal website! I am a PhD candidate in Civil and Environmental Engineering at École Polytechnique Fédérale de Lausanne (EPFL), working under the supervision of Prof. Marilyne Andersen. My research focuses on biophilic design, light patterns, and human responses to environmental design.</p>
+                        
+                        <p>As both a designer and researcher, I am passionate about understanding how architectural and environmental design elements influence human well-being and behavior. My work explores innovative approaches to creating spaces that enhance human connection with nature through thoughtful integration of light, views, and biophilic elements.</p>
+                        
+                        <p>My research particularly investigates Komorebi light patterns - the interplay of light and shadow created by leaves - and their potential benefits for human psychological and physiological responses in built environments. I hold a Master of Architecture degree from MIT, where I developed systems for embedding dappled sunlight phenomena in built environments.</p>
+                    </div>
                 </div>
 
                 <div class="contact-info">
                     <h3>Contact Information</h3>
                     <p><strong>Email:</strong> zhujing.zhang@epfl.ch</p>
+                    <p><strong>Phone:</strong> +41 21 693 91 24</p>
                     <p><strong>Institution:</strong> EPFL - École Polytechnique Fédérale de Lausanne</p>
                     <p><strong>Laboratory:</strong> Laboratory of Integrated Performance in Design (LIPID)</p>
                     <p><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/stella-zhujing-zhang</a></p>
-                    <p><strong>Google Scholar:</strong> <a href="https://scholar.google.com/citations?user=j9LP71AAAAAJ">Google Scholar Profile</a></p>
+                    
+                    <a href="/cv.pdf" class="cv-download" download>Download CV</a>
                 </div>
             </section>
 
@@ -336,12 +390,6 @@
             <section id="publications" class="content-section hidden">
                 <div class="publications-header">
                     <h2>Academic Publications</h2>
-                    <div class="pub-links-header">
-                        <a href="https://scholar.google.com/citations?user=j9LP71AAAAAJ">Google Scholar</a> | 
-                        <a href="#">ResearchGate</a> | 
-                        <a href="#">ORCID</a> | 
-                        Publications by project are also included within each project page.
-                    </div>
                 </div>
                 
                 <div class="pub-section">
@@ -353,6 +401,39 @@
                         </div>
                         <div class="pub-title">"A Review of the Effectiveness of Metrics for Assessing Human Responses to Biophilic Environments Involving Views, Shading, and Interior Design Elements"</div>
                         <div class="pub-venue">Journal of Environmental Psychology, 2025 (accepted)</div>
+                    </div>
+
+                    <div class="publication">
+                        <div class="pub-authors">
+                            <span class="author-name">Zhang, Zhujing</span>, Kevin J. Kircher, Yuan Cai, Jonathon G. Brearley, David P. Birge, and Leslie K. Norford.
+                        </div>
+                        <div class="pub-title">"Mitigating peak load and heat stress under heatwaves by optimizing adjustments of fan speed and thermostat setpoint"</div>
+                        <div class="pub-venue">Journal of Building Performance Simulation, 2023</div>
+                        <div class="pub-doi">
+                            <a href="https://doi.org/10.1080/19401493.2023.2180538">https://doi.org/10.1080/19401493.2023.2180538</a>
+                        </div>
+                    </div>
+
+                    <div class="publication">
+                        <div class="pub-authors">
+                            <span class="author-name">Zhang, Zhujing</span>, et al.
+                        </div>
+                        <div class="pub-title">"Quantifying the influence of continuous and discrete design decisions using sensitivities"</div>
+                        <div class="pub-venue">Building and Environment, 2024</div>
+                        <div class="pub-doi">
+                            <a href="https://doi.org/10.1016/j.buildenv.2024.111198">https://doi.org/10.1016/j.buildenv.2024.111198</a>
+                        </div>
+                    </div>
+
+                    <div class="publication">
+                        <div class="pub-authors">
+                            David P. Birge, Jonathon Brearley, <span class="author-name">Zhujing Zhang</span>, and Leslie K. Norford.
+                        </div>
+                        <div class="pub-title">"Design of heat-resilient housing in hot-arid regions"</div>
+                        <div class="pub-venue">Energy and Buildings, 2025</div>
+                        <div class="pub-doi">
+                            <a href="https://doi.org/10.1016/j.enbuild.2024.115003">https://doi.org/10.1016/j.enbuild.2024.115003</a>
+                        </div>
                     </div>
                 </div>
 
@@ -374,6 +455,32 @@
                         <div class="pub-title">"Spatio-temporal dynamics of Komorebi light patterns"</div>
                         <div class="pub-venue">2025 CIE International Conference, 2025 (accepted)</div>
                     </div>
+
+                    <div class="publication">
+                        <div class="pub-authors">
+                            Daubmann, Karl M., Foley, Ric, Reed, Qetuwrah, and <span class="author-name">Zhang, Zhujing</span>.
+                        </div>
+                        <div class="pub-title">"RoboPinch – Robotic Manipulation of Fabric Formwork for the Creation of Plaster Architectural Models"</div>
+                        <div class="pub-venue">Proceedings of the International Association for Shell and Spatial Structures (IASS) Symposium, 2015</div>
+                        <div class="pub-doi">
+                            <a href="https://www.ingentaconnect.com/content/iass/piass/2015/00002015/00000001/art00015">https://www.ingentaconnect.com/content/iass/piass/2015/00002015/00000001/art00015</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-section">
+                    <h3>Thesis</h3>
+                    
+                    <div class="publication">
+                        <div class="pub-authors">
+                            <span class="author-name">Zhang, Zhujing</span>.
+                        </div>
+                        <div class="pub-title">"Komorebi: Embedding dappled sunlight in the built environment"</div>
+                        <div class="pub-venue">Master of Architecture Thesis, Massachusetts Institute of Technology, Department of Architecture, February 2020</div>
+                        <div class="pub-doi">
+                            Advisor: Takehiko Nagakura. <a href="https://dspace.mit.edu/handle/1721.1/129914">https://dspace.mit.edu/handle/1721.1/129914</a>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -389,7 +496,7 @@
                         <div class="project-title">Komorebi Light Patterns Research</div>
                         <div class="project-keywords">Biophilic Design | Light Simulation | Human Response | Environmental Psychology</div>
                         <div class="project-description">
-                            Investigating the psychological and physiological benefits of Komorebi - the Japanese term for the interplay of light and shadow created by leaves. This research explores how these dynamic light patterns can be integrated into architectural design to enhance human well-being and connection with nature.
+                            Investigating the psychological and physiological benefits of Komorebi - the Japanese term for the interplay of light and shadow created by leaves. This research explores how these dynamic light patterns can be integrated into architectural design to enhance human well-being and connection with nature, building upon my MIT thesis work on embedding dappled sunlight in built environments.
                         </div>
                         <div class="project-links">
                             <a href="#">Research Details</a>
