@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: #fdfdfd;
@@ -165,8 +165,8 @@
 
         /* CV Sections */
         .cv-section {
-            margin: 40px 0;
-            padding-bottom: 30px;
+            margin: 25px 0;
+            padding-bottom: 20px;
             border-bottom: 1px solid #ecf0f1;
         }
 
@@ -175,15 +175,15 @@
         }
 
         .cv-section h3 {
-            font-size: 1.4em;
+            font-size: 1.2em;
             color: #2c3e50;
-            margin-bottom: 20px;
-            font-weight: bold;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
         .cv-item {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
+            margin-bottom: 18px;
+            padding-bottom: 15px;
         }
 
         .cv-item:last-child {
@@ -309,40 +309,48 @@
         }
 
         /* Projects Section */
-        .projects-section {
-            margin-bottom: 50px;
-        }
-
         .project-category {
-            margin-bottom: 50px;
-        }
-
-        .project-category h3 {
-            font-size: 1.4em;
-            color: #2c3e50;
-            margin-bottom: 30px;
-            font-weight: bold;
-            border-bottom: 1px solid #ecf0f1;
-            padding-bottom: 10px;
-        }
-
-        .project {
             margin-bottom: 40px;
-            background-color: #f8f9fa;
-            border-radius: 8px;
+        }
+
+        .project-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-title {
+            font-size: 1.2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: bold;
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 8px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 25px;
+            margin-bottom: 30px;
+        }
+
+        .project-card {
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-radius: 4px;
             overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .project-image {
             width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+            height: 180px;
             overflow: hidden;
+            position: relative;
+            background-color: #f8f9fa;
         }
 
         .project-image img {
@@ -362,52 +370,166 @@
                         radial-gradient(circle at 20% 80%, rgba(255,255,255,0.4) 1.5px, transparent 1.5px),
                         radial-gradient(circle at 80% 70%, rgba(255,255,255,0.3) 2px, transparent 2px),
                         linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            animation: lightPattern 4s ease-in-out infinite;
         }
 
-        @keyframes lightPattern {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+        .project-info {
+            padding: 12px 0;
         }
 
-        .project-content {
-            padding: 25px;
-        }
-
-        .project-title {
-            font-size: 1.3em;
-            font-weight: bold;
+        .project-info h4 {
+            font-size: 1em;
+            font-weight: 600;
             color: #2c3e50;
-            margin-bottom: 10px;
+            margin: 0 0 3px 0;
+            line-height: 1.3;
         }
 
-        .project-description {
-            margin-bottom: 15px;
-            line-height: 1.6;
-            color: #555;
-        }
-
-        .project-keywords {
-            color: #e74c3c;
-            font-size: 0.9em;
-            margin-bottom: 15px;
+        .project-year {
+            font-size: 0.8em;
+            color: #7f8c8d;
+            margin: 0 0 6px 0;
             font-weight: 500;
         }
 
-        .project-links {
-            margin-top: 15px;
+        .project-brief {
+            font-size: 0.85em;
+            color: #555;
+            line-height: 1.3;
+            margin: 0 0 6px 0;
         }
 
-        .project-links a {
+        .project-tags {
+            font-size: 0.75em;
+            color: #e74c3c;
+            font-weight: 500;
+        }
+
+        /* Project Detail Page */
+        .project-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .back-button {
+            background: none;
+            border: none;
+            color: #3498db;
+            font-size: 1em;
+            cursor: pointer;
+            padding: 8px 0;
+            font-family: inherit;
+            transition: color 0.3s ease;
+        }
+
+        .back-button:hover {
             color: #2980b9;
+        }
+
+        .project-nav-title {
+            font-size: 1.1em;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        .project-detail-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .project-detail-content h1 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-weight: normal;
+        }
+
+        .project-detail-content .project-meta {
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            font-size: 1em;
+        }
+
+        .project-detail-content .project-description {
+            font-size: 1.05em;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        .project-detail-content .detail-image {
+            width: 100%;
+            margin: 25px 0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .project-detail-content .detail-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .project-detail-content .image-caption {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            text-align: center;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .project-detail-content h3 {
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .project-detail-content p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .project-detail-content .project-links {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .project-detail-content .project-links a {
+            color: #3498db;
             text-decoration: none;
             margin-right: 20px;
             font-weight: 500;
         }
 
-        .project-links a:hover {
+        .project-detail-content .project-links a:hover {
             text-decoration: underline;
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .project-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .project-detail-content {
+                max-width: 100%;
+            }
+        }
+
 
         /* Footer */
         footer {
@@ -487,7 +609,9 @@
                 <h2>About</h2>
                 <div class="about-layout">
                     <div class="profile-image">
-                        <img src="profile.jpg" alt="Stella Zhujing Zhang">                    
+                        <!-- To add your photo, replace this div with: -->
+                        <!-- <img src="path/to/your/photo.jpg" alt="Stella Zhujing Zhang"> -->
+                        Add your profile photo here
                     </div>
                     <div class="about-content">
                         <p>I am a PhD candidate in Civil and Environmental Engineering at École Polytechnique Fédérale de Lausanne (EPFL), working under the supervision of Prof. Marilyne Andersen. My research focuses on the intersection of biophilic design, light patterns, view quality, and human responses to built environments.</p>
@@ -602,10 +726,12 @@
                 <div class="contact-info">
                     <h3>Contact Information</h3>
                     <p><strong>Email:</strong> zhujing.zhang@epfl.ch</p>
+                    <p><strong>Phone:</strong> +41 21 693 91 24</p>
                     <p><strong>Institution:</strong> EPFL - École Polytechnique Fédérale de Lausanne</p>
                     <p><strong>Laboratory:</strong> Laboratory of Integrated Performance in Design (LIPID)</p>
+                    <p><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/stella-zhujing-zhang</a></p>
                     
-                    <a href="cv.pdf" class="cv-download" download>Download CV</a>
+                    <a href="/cv.pdf" class="cv-download" download>Download Full CV</a>
                 </div>
             </section>
 
@@ -639,6 +765,17 @@
 
                     <div class="publication">
                         <div class="pub-authors">
+                            <span class="author-name">Zhang, Zhujing</span>, et al.
+                        </div>
+                        <div class="pub-title">"Quantifying the influence of continuous and discrete design decisions using sensitivities"</div>
+                        <div class="pub-venue">Building and Environment, 2024</div>
+                        <div class="pub-doi">
+                            <a href="https://doi.org/10.1016/j.buildenv.2024.111198">https://doi.org/10.1016/j.buildenv.2024.111198</a>
+                        </div>
+                    </div>
+
+                    <div class="publication">
+                        <div class="pub-authors">
                             David P. Birge, Jonathon Brearley, <span class="author-name">Zhujing Zhang</span>, and Leslie K. Norford.
                         </div>
                         <div class="pub-title">"Design of heat-resilient housing in hot-arid regions"</div>
@@ -662,7 +799,7 @@
 
                     <div class="publication">
                         <div class="pub-authors">
-                            <span class="author-name">Zhang, Zhujing</span>, and Andersen, Marilyne.
+                            <span class="author-name">Zhang, Zhujing</span>, and Andersen, Prof. Marilyne.
                         </div>
                         <div class="pub-title">"Spatio-temporal dynamics of Komorebi light patterns"</div>
                         <div class="pub-venue">2025 CIE International Conference, 2025 (accepted)</div>
@@ -700,247 +837,436 @@
             <section id="projects" class="content-section hidden">
                 <h2>Projects</h2>
                 
-                <!-- Research Projects -->
+                <!-- Research Projects Section -->
                 <div class="project-category">
-                    <h3>Research Projects</h3>
+                    <h3 class="category-title">Research Projects</h3>
                     
-                    <div class="project">
-                        <div class="project-image">
-                            <!-- Replace with: <img src="komorebi-research.jpg" alt="Komorebi Light Patterns Research"> -->
-                            <div class="project-visual"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-title">Komorebi Light Patterns & Human Response Research</div>
-                            <div class="project-keywords">Biophilic Design | Light Simulation | Human Response | Environmental Psychology | EPFL</div>
-                            <div class="project-description">
-                                Investigating the psychological and physiological benefits of Komorebi - the Japanese term for the interplay of light and shadow created by leaves. This ongoing PhD research explores how these dynamic light patterns can be integrated into architectural design to enhance human well-being and connection with nature through empirical study of their relationship to human responses.
+                    <div class="projects-grid">
+                        <div class="project-card" onclick="openProject('komorebi-research')">
+                            <div class="project-image">
+                                <div class="project-visual"></div>
                             </div>
-                            <div class="project-links">
-                                <a href="#publications">Related Publications</a>
-                                <a href="#">Research Details</a>
+                            <div class="project-info">
+                                <h4>Komorebi Light Patterns Research</h4>
+                                <p class="project-year">2022-Present</p>
+                                <p class="project-brief">Investigating psychological and physiological benefits of dynamic light patterns in biophilic design through spatio-temporal metrics and human response studies.</p>
+                                <div class="project-tags">Biophilic Design | Light Simulation | Human Response</div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="project">
-                        <div class="project-image">
-                            <!-- Replace with: <img src="biophilic-metrics.jpg" alt="Biophilic Environment Assessment"> -->
-                            <div class="project-visual" style="background: linear-gradient(45deg, #a8e6cf 0%, #dcedc1 25%, #ffd3a5 50%, #ffa085 75%, #ff8a80 100%);"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-title">Biophilic Environment Assessment Metrics</div>
-                            <div class="project-keywords">Metrics Development | Biophilic Design | Human-Environment Interaction | Assessment Tools | EPFL</div>
-                            <div class="project-description">
-                                Comprehensive review and development of metrics for assessing human responses to biophilic environments. This work focuses on evaluating the effectiveness of various measurement approaches for views, shading, and interior design elements that connect occupants with natural environments.
+                        <div class="project-card" onclick="openProject('biophilic-metrics')">
+                            <div class="project-image">
+                                <div class="project-visual" style="background: linear-gradient(45deg, #a8e6cf 0%, #dcedc1 25%, #ffd3a5 50%, #ffa085 75%, #ff8a80 100%);"></div>
                             </div>
-                            <div class="project-links">
-                                <a href="#publications">Journal Article</a>
-                                <a href="#">Methodology</a>
+                            <div class="project-info">
+                                <h4>Biophilic Environment Assessment Metrics</h4>
+                                <p class="project-year">2025</p>
+                                <p class="project-brief">Comprehensive review and development of metrics for assessing human responses to biophilic environments and natural connections.</p>
+                                <div class="project-tags">Metrics Development | Assessment Tools</div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="project">
-                        <div class="project-image">
-                            <!-- Replace with: <img src="heat-resilient-housing.jpg" alt="Heat-Resilient Housing Research"> -->
-                            <div class="project-visual" style="background: linear-gradient(135deg, #ff9a56 0%, #ff6b6b 50%, #feca57 100%);"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-title">Heat-Resilient Housing Design</div>
-                            <div class="project-keywords">Building Performance | Thermal Comfort | Resilient Design | Machine Learning | MIT</div>
-                            <div class="project-description">
-                                Research on mitigating peak load and heat stress under heatwaves through optimization of building systems. This work developed machine learning models as surrogates for physics-based simulations to optimize fan speed and thermostat setpoint adjustments for enhanced thermal comfort and energy efficiency.
+                        <div class="project-card" onclick="openProject('peak-load-optimization')">
+                            <div class="project-image">
+                                <div class="project-visual" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
                             </div>
-                            <div class="project-links">
-                                <a href="#publications">Journal Publications</a>
-                                <a href="#">Simulation Tools</a>
+                            <div class="project-info">
+                                <h4>Peak Load and Heat Stress Optimization</h4>
+                                <p class="project-year">2023</p>
+                                <p class="project-brief">Machine learning models for optimizing building performance during heatwaves through control of fan speeds and thermostat setpoints.</p>
+                                <div class="project-tags">Building Performance | Machine Learning</div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="project">
-                        <div class="project-image">
-                            <!-- Replace with: <img src="robotic-fabrication.jpg" alt="Robotic Fabric Formwork"> -->
-                            <div class="project-visual" style="background: radial-gradient(circle at center, #667eea 0%, #764ba2 50%, #2c3e50 100%);"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-title">RoboPinch: Robotic Fabric Formwork</div>
-                            <div class="project-keywords">Digital Fabrication | Robotics | Computational Design | Architectural Modeling | University of Michigan</div>
-                            <div class="project-description">
-                                Development of robotic manipulation methods for fabric-formed architectural modeling. This research explored the creation of plaster architectural models through precise robotic distortion of fabric formwork during the casting process, investigating the translative impact of industrial robotics in architectural design.
+                        <div class="project-card" onclick="openProject('heat-resilient-housing')">
+                            <div class="project-image">
+                                <div class="project-visual" style="background: radial-gradient(circle at center, #ff7675 0%, #fd79a8 50%, #fdcb6e 100%);"></div>
                             </div>
-                            <div class="project-links">
-                                <a href="#publications">IASS Conference Paper</a>
-                                <a href="#">Fabrication Process</a>
+                            <div class="project-info">
+                                <h4>Heat-Resilient Housing Design</h4>
+                                <p class="project-year">2025</p>
+                                <p class="project-brief">Collaborative research on designing heat-resilient housing for hot-arid regions through simulation-based methods.</p>
+                                <div class="project-tags">Resilient Design | Hot-Arid Climate</div>
+                            </div>
+                        </div>
+
+                        <div class="project-card" onclick="openProject('robopinch')">
+                            <div class="project-image">
+                                <div class="project-visual" style="background: linear-gradient(45deg, #74b9ff 0%, #0984e3 50%, #00cec9 100%);"></div>
+                            </div>
+                            <div class="project-info">
+                                <h4>RoboPinch: Robotic Fabric Formwork</h4>
+                                <p class="project-year">2015</p>
+                                <p class="project-brief">Robotic manipulation methods for fabric-formed architectural modeling, exploring digital tools and physical making processes.</p>
+                                <div class="project-tags">Digital Fabrication | Robotics</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Design Portfolio Projects -->
+                <!-- Portfolio Projects Section -->
                 <div class="project-category">
-                    <h3>Design Portfolio</h3>
+                    <h3 class="category-title">Design Portfolio</h3>
                     
-                    <div class="project">
-                        <div class="project-image">
-                            <!-- Replace with: <img src="komorebi-thesis.jpg" alt="Komorebi MIT Thesis"> -->
-                            <div class="project-visual" style="background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.3) 2px, transparent 2px), radial-gradient(circle at 70% 20%, rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-title">Komorebi: Embedding Dappled Sunlight in the Built Environment</div>
-                            <div class="project-keywords">Master's Thesis | Biophilic Design | Building Systems | Light Patterns | MIT 2020</div>
-                            <div class="project-description">
-                                Master of Architecture thesis exploring how to bring the Japanese concept of Komorebi - dappled sunlight filtered through tree foliage - into built environments. Developed a dynamic daylight-filtering system integrated with solar air collectors to create temporal and improvisational dappled light patterns for buildings with limited access to nature.
+                    <div class="projects-grid">
+                        <div class="project-card" onclick="openProject('komorebi-thesis')">
+                            <div class="project-image">
+                                <img src="komorebi-thesis.jpg" alt="Komorebi Thesis" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="project-visual" style="background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%); display: none;"></div>
                             </div>
-                            <div class="project-links">
-                                <a href="https://dspace.mit.edu/handle/1721.1/129914">MIT Thesis</a>
-                                <a href="#">System Details</a>
+                            <div class="project-info">
+                                <h4>Komorebi: Embedding Dappled Sunlight</h4>
+                                <p class="project-year">2020</p>
+                                <p class="project-brief">Master's thesis developing a daylight-filtering system to bring the phenomenon of Komorebi into built environments.</p>
+                                <div class="project-tags">Architectural Design | Daylighting | MIT Thesis</div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="project">
-                        <div class="project-image">
-                            <!-- Replace with: <img src="bamboo-pavilion.jpg" alt="Bamboo Pavilion"> -->
-                            <div class="project-visual" style="background: linear-gradient(45deg, #8B4513 0%, #D2691E 50%, #228B22 100%);"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-title">Bamboo Pavilion 山水田村</div>
-                            <div class="project-keywords">Collaborative Design | Bamboo Construction | Wang Shu Workshop | Traditional Materials | MIT 2018</div>
-                            <div class="project-description">
-                                First Prize winner in China Wang Shu Workshop. A riverside pavilion design that integrates mountain, water, farmland, and village elements. The proposal uses existing riverbank infrastructure and creates a cantilevered bamboo structure that serves as a public resting area, market space, and wayfinding landmark while respecting traditional Chinese landscape principles.
+                        <div class="project-card" onclick="openProject('bamboo-pavilion')">
+                            <div class="project-image">
+                                <img src="bamboo-pavilion.jpg" alt="Bamboo Pavilion" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="project-visual" style="background: linear-gradient(45deg, #8B4513 0%, #DEB887 50%, #228B22 100%); display: none;"></div>
                             </div>
-                            <div class="project-links">
-                                <a href="#">Construction Details</a>
-                                <a href="#">Structural System</a>
+                            <div class="project-info">
+                                <h4>Bamboo Pavilion 山水田村</h4>
+                                <p class="project-year">2018</p>
+                                <p class="project-brief">First Prize in China Wang Shu Workshop, exploring mountain, water, farmland, and village relationships through bamboo construction.</p>
+                                <div class="project-tags">Bamboo Construction | Traditional Materials</div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="project">
-                        <div class="project-image">
-                            <!-- Replace with: <img src="shelter-plants-people.jpg" alt="Shelter for People and Plants"> -->
-                            <div class="project-visual" style="background: linear-gradient(135deg, #32CD32 0%, #98FB98 50%, #F0E68C 100%);"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-title">Shelter for People and Plants</div>
-                            <div class="project-keywords">Post-Disaster Design | Resilient Architecture | Agricultural Education | Puerto Rico | MIT 2018</div>
-                            <div class="project-description">
-                                Post-Hurricane Maria school renovation in Puerto Rico that merges education, agriculture, and disaster relief. The design creates an institution focused on agricultural education, production, and community resilience, serving as both a learning center and emergency shelter while addressing food security through integrated farming systems.
+                        <div class="project-card" onclick="openProject('shelter-people-plants')">
+                            <div class="project-image">
+                                <img src="puerto-rico-school.jpg" alt="Puerto Rico School" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="project-visual" style="background: linear-gradient(45deg, #2E8B57 0%, #98FB98 50%, #FFD700 100%); display: none;"></div>
                             </div>
-                            <div class="project-links">
-                                <a href="#">Resilience Strategy</a>
-                                <a href="#">Agricultural Systems</a>
+                            <div class="project-info">
+                                <h4>Shelter for People and Plants</h4>
+                                <p class="project-year">2018</p>
+                                <p class="project-brief">Post-disaster school renovation in Puerto Rico merging education, agriculture, and disaster relief shelter functions.</p>
+                                <div class="project-tags">Post-Disaster Design | Agriculture | Education</div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="project">
-                        <div class="project-image">
-                            <!-- Replace with: <img src="reciproco-winery.jpg" alt="RECÍPROCO Winery"> -->
-                            <div class="project-visual" style="background: conic-gradient(from 45deg, #8B0000, #DC143C, #B22222, #8B0000);"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-title">RECÍPROCO: Sustainable Winery Design</div>
-                            <div class="project-keywords">Sustainable Design | Passive Systems | Structural Optimization | Baja California | MIT 2017</div>
-                            <div class="project-description">
-                                Gravity-fed winery design for Baja California's extreme climate that acts as its own thermal engine. The hillside-integrated design uses earth's thermal mass, chimney effects, and buried earth ducts to naturally regulate temperature and ventilation, supporting wine production while minimizing energy consumption.
+                        <div class="project-card" onclick="openProject('reciproco-winery')">
+                            <div class="project-image">
+                                <img src="reciproco-winery.jpg" alt="Reciproco Winery" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="project-visual" style="background: linear-gradient(45deg, #800020 0%, #D2691E 50%, #F4A460 100%); display: none;"></div>
                             </div>
-                            <div class="project-links">
-                                <a href="#">Thermal Strategy</a>
-                                <a href="#">Structural Design</a>
+                            <div class="project-info">
+                                <h4>RECÍPROCO: Winery in Baja</h4>
+                                <p class="project-year">2017</p>
+                                <p class="project-brief">Sustainable winery design using passive thermal strategies and gravity-fed operations in Baja's extreme climate conditions.</p>
+                                <div class="project-tags">Sustainable Design | Thermal Performance</div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="project">
-                        <div class="project-image">
-                            <!-- Replace with: <img src="play-in-circle.jpg" alt="Play in Circle YMCA"> -->
-                            <div class="project-visual" style="background: radial-gradient(circle at center, #FFD700 0%, #FFA500 50%, #FF6347 100%);"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-title">Play in Circle: YMCA Design</div>
-                            <div class="project-keywords">Community Design | Play-Based Architecture | Circular Geometry | Intergenerational Spaces | MIT 2017</div>
-                            <div class="project-description">
-                                YMCA design centered on the theme of play and circular forms inspired by children's natural movement patterns. Features modular play devices based on shape grammar and color-coded assembly rules, creating spaces where different generations can interact and play together in various configurations.
+                        <div class="project-card" onclick="openProject('play-in-circle')">
+                            <div class="project-image">
+                                <img src="ymca-circles.jpg" alt="YMCA Play in Circle" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="project-visual" style="background: radial-gradient(circle at center, #FFD700 0%, #FFA500 50%, #FF6347 100%); display: none;"></div>
                             </div>
-                            <div class="project-links">
-                                <a href="#">Play Systems</a>
-                                <a href="#">Community Programs</a>
+                            <div class="project-info">
+                                <h4>Play in Circle: YMCA Proposal</h4>
+                                <p class="project-year">2017</p>
+                                <p class="project-brief">YMCA design proposal using circular forms to create intergenerational play spaces and community connections.</p>
+                                <div class="project-tags">Community Center | Play Design | Circular Form</div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="project">
-                        <div class="project-image">
-                            <!-- Replace with: <img src="robotic-hot-wire.jpg" alt="Curving: Robotic Hot-Wire Cutting"> -->
-                            <div class="project-visual" style="background: linear-gradient(45deg, #C0C0C0 0%, #808080 50%, #000000 100%);"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-title">Curving: Robotic Hot-Wire Cutting</div>
-                            <div class="project-keywords">Digital Fabrication | Robotic Manufacturing | Precision Cutting | Computational Geometry | MIT 2017</div>
-                            <div class="project-description">
-                                Exploration of precision in robotic hot-wire cutting using KUKA 7-axis robot. The project optimized tool paths to achieve perfect circular intersections from developable surfaces, addressing challenges in tool center coordination and cutting trajectory optimization for complex geometric forms.
+                        <div class="project-card" onclick="openProject('landscape-painting')">
+                            <div class="project-image">
+                                <img src="landscape-scroll.jpg" alt="Chinese Landscape Painting" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="project-visual" style="background: linear-gradient(90deg, #708090 0%, #F5F5DC 25%, #90EE90 50%, #87CEEB 75%, #708090 100%); display: none;"></div>
                             </div>
-                            <div class="project-links">
-                                <a href="#">Technical Process</a>
-                                <a href="#">Optimization Methods</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project">
-                        <div class="project-image">
-                            <!-- Replace with: <img src="overpack.jpg" alt="Overpack: Temporality of Making"> -->
-                            <div class="project-visual" style="background: linear-gradient(135deg, #4682B4 0%, #B0C4DE 50%, #F5F5DC 100%);"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-title">Overpack: Temporality of Making</div>
-                            <div class="project-keywords">Temporal Design | Memory Objects | Fabric Manipulation | Process Documentation | MIT 2017</div>
-                            <div class="project-description">
-                                Project exploring how objects embody temporal and spatial memories. Creates fabric bags that preserve the traces of overpacked moments, allowing past experiences to undergo new journeys. The work examines how everyday objects can capture and communicate their histories through physical deformation.
-                            </div>
-                            <div class="project-links">
-                                <a href="#">Making Process</a>
-                                <a href="#">Concept Development</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project">
-                        <div class="project-image">
-                            <!-- Replace with: <img src="tracing-walk.jpg" alt="Tracing the Walk"> -->
-                            <div class="project-visual" style="background: linear-gradient(90deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.8) 100%), linear-gradient(45deg, #E6E6FA 0%, #D8BFD8 100%);"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-title">Tracing the Walk: Responsive Installation</div>
-                            <div class="project-keywords">Responsive Architecture | Motion Capture | Trace Paper Systems | Interactive Design | MIT 2016</div>
-                            <div class="project-description">
-                                Installation that registers and visualizes the subtle motion of walking through delicate trace paper surfaces. The system creates delayed reactions traced throughout space, bringing inanimate objects to life through human movement and generating unified wave motions that follow walker's paths.
-                            </div>
-                            <div class="project-links">
-                                <a href="#">Installation Details</a>
-                                <a href="#">Motion Studies</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project">
-                        <div class="project-image">
-                            <!-- Replace with: <img src="chinese-landscape.jpg" alt="Chinese Landscape Painting"> -->
-                            <div class="project-visual" style="background: linear-gradient(to right, #F0F8FF 0%, #E6F3E6 25%, #F0F8E6 50%, #E6F0F8 75%, #F8F0E6 100%);"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-title">意境 · 意思: Chinese Landscape Painting</div>
-                            <div class="project-keywords">Traditional Art | Spatial Narrative | Atmosphere | Cultural Expression | Personal Work</div>
-                            <div class="project-description">
-                                200-inch horizontal scroll painting combining multiple geographical scenes in an imaginary world. The work explores space, atmosphere, experience, and imagination through traditional Chinese landscape painting techniques, creating narrative depth through the transaction of multiple spatial environments over three months of continuous work.
-                            </div>
-                            <div class="project-links">
-                                <a href="#">Artistic Process</a>
-                                <a href="#">Cultural Context</a>
+                            <div class="project-info">
+                                <h4>意境·意思 Chinese Landscape Painting</h4>
+                                <p class="project-year">2015-2019</p>
+                                <p class="project-brief">5-meter horizontal scroll exploring space, atmosphere, and imagination through traditional Chinese landscape painting techniques.</p>
+                                <div class="project-tags">Traditional Art | Landscape | Cultural Heritage</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <!-- Individual Project Pages -->
+            <section id="project-detail" class="content-section hidden">
+                <div class="project-nav">
+                    <button onclick="closeProject()" class="back-button">← Back to Projects</button>
+                    <div class="project-nav-title" id="project-nav-title"></div>
+                </div>
+                
+                <div class="project-detail-content" id="project-detail-content">
+                    <!-- Project content will be dynamically loaded here -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Stella Zhujing Zhang. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.content-section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all nav links
+                    navLinks.forEach(nl => nl.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Hide all sections
+                    sections.forEach(section => section.classList.add('hidden'));
+                    
+                    // Show target section
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+
+        // Project detail functionality
+        function openProject(projectId) {
+            // Hide projects section and show project detail
+            document.getElementById('projects').classList.add('hidden');
+            document.getElementById('project-detail').classList.remove('hidden');
+            
+            // Update navigation title
+            document.getElementById('project-nav-title').textContent = getProjectTitle(projectId);
+            
+            // Load project content
+            loadProjectContent(projectId);
+        }
+
+        function closeProject() {
+            // Hide project detail and show projects section
+            document.getElementById('project-detail').classList.add('hidden');
+            document.getElementById('projects').classList.remove('hidden');
+        }
+
+        function getProjectTitle(projectId) {
+            const titles = {
+                'komorebi-research': 'Komorebi Light Patterns Research',
+                'biophilic-metrics': 'Biophilic Environment Assessment Metrics',
+                'peak-load-optimization': 'Peak Load and Heat Stress Optimization',
+                'heat-resilient-housing': 'Heat-Resilient Housing Design',
+                'robopinch': 'RoboPinch: Robotic Fabric Formwork',
+                'komorebi-thesis': 'Komorebi: Embedding Dappled Sunlight',
+                'bamboo-pavilion': 'Bamboo Pavilion 山水田村',
+                'shelter-people-plants': 'Shelter for People and Plants',
+                'reciproco-winery': 'RECÍPROCO: Winery in Baja',
+                'play-in-circle': 'Play in Circle: YMCA Proposal',
+                'landscape-painting': '意境·意思 Chinese Landscape Painting'
+            };
+            return titles[projectId] || 'Project';
+        }
+
+        function loadProjectContent(projectId) {
+            const content = getProjectContent(projectId);
+            document.getElementById('project-detail-content').innerHTML = content;
+        }
+
+        function getProjectContent(projectId) {
+            const contents = {
+                'komorebi-thesis': `
+                    <h1>Komorebi: Embedding Dappled Sunlight in the Built Environment</h1>
+                    <div class="project-meta">Master of Architecture Thesis, MIT • 2020 • Committee: Christoph Reinhart, Terry Knight, Takehiko Nagakura</div>
+                    
+                    <div class="project-description">
+                        Nowadays, humans are increasingly disconnected from nature. Urbanization, resource exploitation, and changes in ways of living have diminished people's access to nature. This thesis aims to provide people with the perception of connectedness to nature in the built environment by embedding the sensory experience of Komorebi in building systems.
+                    </div>
+
+                    <div class="detail-image">
+                        <img src="komorebi-nature.jpg" alt="Komorebi in nature" onerror="this.parentElement.style.display='none';">
+                        <div class="image-caption">Komorebi in nature - the interplay of light and shadow created by leaves</div>
+                    </div>
+
+                    <h3>Concept</h3>
+                    <p>Komorebi is a Japanese term that describes the dappled sunlight filtered through tree foliage. A daylight-filtering system was developed to bring the dynamic improvisational visual effect, Komorebi, into the built environment. The system integrates a double-glazing system with solar air collectors.</p>
+
+                    <div class="detail-image">
+                        <img src="komorebi-system.jpg" alt="Komorebi system prototype" onerror="this.parentElement.style.display='none';">
+                        <div class="image-caption">Prototype model showing the controllable motion of Komorebi elements</div>
+                    </div>
+
+                    <h3>System Design</h3>
+                    <p>As wind triggers the movement of leaves, the airflow, caused by the expansion of air from temperature rise in the solar air chamber, would be able to trigger the dynamic movement of the shading elements in the system. The size, blurriness, and roundness of the dappled lights are affected by the sizes of the holes that compose the shading elements and their distance to the projection surface.</p>
+
+                    <div class="detail-image">
+                        <img src="komorebi-testing.jpg" alt="Prototype testing" onerror="this.parentElement.style.display='none';">
+                        <div class="image-caption">Prototype test on site with various hole percentages and sun exposure conditions</div>
+                    </div>
+
+                    <h3>Applications</h3>
+                    <p>In application, it would have great potential at places such as high-rise offices, hospitals, and elderly care, where the natural connection is limited and where relinking occupants to nature would be highly beneficial. The dynamic shading system working together with the natural factors of wind and sun would produce temporal and improvisational dappled light for the built environment.</p>
+
+                    <div class="detail-image">
+                        <img src="komorebi-applications.jpg" alt="Application scenarios" onerror="this.parentElement.style.display='none';">
+                        <div class="image-caption">Daylight Autonomy and Annual Glare test results for hospital and classroom applications</div>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://dspace.mit.edu/handle/1721.1/129914" target="_blank">View Full Thesis</a>
+                        <a href="#" onclick="closeProject()">← Back to Projects</a>
+                    </div>
+                `,
+                
+                'bamboo-pavilion': `
+                    <h1>Bamboo Pavilion 山水田村</h1>
+                    <div class="project-meta">First Prize, China Wang Shu Workshop • MIT • 2018 • Collaboration with: Keming Yang, Ziyang Liu, Taeseop Shin</div>
+                    
+                    <div class="project-description">
+                        Mountain, water, farmland, village - these four elements form a special kind of landscape in He Shao Xi village. Each construction in this proposal is based on the character of each type of landscape and the needs of local people, keeping and using existing structures while forming a network throughout the whole village.
+                    </div>
+
+                    <div class="detail-image">
+                        <img src="bamboo-pavilion-render.jpg" alt="Bamboo pavilion rendering" onerror="this.parentElement.style.display='none';">
+                        <div class="image-caption">Pavilion design integrating traditional bamboo construction with modern techniques</div>
+                    </div>
+
+                    <h3>Site Analysis</h3>
+                    <p>The prototype site locates by an intersection of a water bank and a stair to the river. The proposal takes place based on activities by the river, making use of the existing riverbank earth channel by proper reinforcement for columns to sit on.</p>
+
+                    <div class="detail-image">
+                        <img src="village-survey.jpg" alt="Village survey diagrams" onerror="this.parentElement.style.display='none';">
+                        <div class="image-caption">Village survey and waterbank activity diagrams</div>
+                    </div>
+
+                    <h3>Construction Details</h3>
+                    <p>The foundation of the new structure makes use of the existing infrastructure. In between the columns, the concrete reinforced spaces form water tanks for washing. Two sloped roofs cantilever out towards the two sides of the riverbank and form a space sequence for looking up to the sky and looking down to water.</p>
+
+                    <div class="detail-image">
+                        <img src="bamboo-construction.jpg" alt="Construction details" onerror="this.parentElement.style.display='none';">
+                        <div class="image-caption">Bamboo and wood joint details with 1:1 mock-up fabrication and testing</div>
+                    </div>
+
+                    <h3>Program</h3>
+                    <p>In this space, programs such as public resting area, school bus station, temporal market or a way-finding light for home may grow spontaneously. The design celebrates the relationship between built environment and natural landscape.</p>
+
+                    <div class="project-links">
+                        <a href="#" onclick="closeProject()">← Back to Projects</a>
+                    </div>
+                `,
+
+                'shelter-people-plants': `
+                    <h1>Shelter for People and Plants</h1>
+                    <div class="project-meta">Post-Disaster School Renovation in Puerto Rico • MIT • 2018 • Instructors: Miho Mazereeuw, David Moses</div>
+                    
+                    <div class="project-description">
+                        Agriculture is a weak field for Puerto Rico, due to its colonial history, exposure to natural disasters, and contemporary economic trends. This project proposes an institution that merges education, planting, production, community participation, and disaster relief shelter together.
+                    </div>
+
+                    <div class="detail-image">
+                        <img src="puerto-rico-site.jpg" alt="Puerto Rico site analysis" onerror="this.parentElement.style.display='none';">
+                        <div class="image-caption">Site analysis showing food sources and agricultural potential in Puerto Rico</div>
+                    </div>
+
+                    <h3>Program Integration</h3>
+                    <p>This new model focuses on agriculture education and also production, business and culinary that relate to agriculture. It serves as a seedbank and seedling distribution center, and could serve as a business center for trading agricultural goods. Most importantly, during disasters this place could be a shelter for both people and plants.</p>
+
+                    <div class="detail-image">
+                        <img src="agriculture-diagram.jpg" alt="Agriculture and food processing diagram" onerror="this.parentElement.style.display='none';">
+                        <div class="image-caption">Agriculture and food processing cycle showing plantain, coffee, and vegetables integration</div>
+                    </div>
+
+                    <h3>Site Strategy</h3>
+                    <p>The site situates in Aguas Buenas, where there is less exposure to risks like flooding. The proposal keeps the existing school and builds an extension on the north side. The plant types include coffee, plantain and vegetables, with chickens raised mobility on the sites.</p>
+
+                    <div class="detail-image">
+                        <img src="disaster-scenarios.jpg" alt="Disaster response scenarios" onerror="this.parentElement.style.display='none';">
+                        <div class="image-caption">Three scenarios: Normal Day, Post Disaster, and Transition back to Normal</div>
+                    </div>
+
+                    <h3>Adaptive Design</h3>
+                    <p>The design accommodates multiple scenarios - from normal educational activities to emergency shelter functions. The building serves as both a learning environment and a resilient community resource that can adapt to changing needs while maintaining agricultural productivity.</p>
+
+                    <div class="project-links">
+                        <a href="#" onclick="closeProject()">← Back to Projects</a>
+                    </div>
+                `,
+
+                'reciproco-winery': `
+                    <h1>RECÍPROCO: Given and Supported by Each Other</h1>
+                    <div class="project-meta">Winery Design in Baja, Mexico • MIT • 2017 • Instructors: Mariana Ibanez, Caitlin Mueller</div>
+                    
+                    <div class="project-description">
+                        Baja is a region that has extreme climate conditions and limited water and energy resources. It is necessary to consider the local environmental condition while designing the winery, thus it could exist in harmony with the environment.
+                    </div>
+
+                    <div class="detail-image">
+                        <img src="baja-climate.jpg" alt="Baja climate analysis" onerror="this.parentElement.style.display='none';">
+                        <div class="image-caption">Temperature diagram of Baja showing extreme seasonal variations and winery operation requirements</div>
+                    </div>
+
+                    <h3>Passive Design Strategy</h3>
+                    <p>The idea is to design a winery that itself could act as an engine to mediate the temperature and ventilate the air. A chimney with different heights produces air pressure differences to drive the air. By passing air through an earth duct buried 2 meters below ground, the temperature is mediated even more.</p>
+
+                    <div class="detail-image">
+                        <img src="thermal-strategy.jpg" alt="Thermal strategy diagrams" onerror="this.parentElement.style.display='none';">
+                        <div class="image-caption">Thermal strategy diagrams showing passive cooling and ventilation systems</div>
+                    </div>
+
+                    <h3>Site Integration</h3>
+                    <p>The site of the winery is on a hillside of a mountain. By cutting and filling the slope, a terrace is constructed to operate the winery in a gravity-fed way, which saves energy for transferring juices from each stage of production. Occupying the hillside takes advantage of the high thermal mass of the earth.</p>
+
+                    <div class="detail-image">
+                        <img src="winery-structure.jpg" alt="Structural design" onerror="this.parentElement.style.display='none';">
+                        <div class="image-caption">Structure optimization using Karamba showing efficient material distribution</div>
+                    </div>
+
+                    <h3>Environmental Performance</h3>
+                    <p>The design integrates seasonal variations - winter and summer operations are accommodated through adaptive shading and ventilation strategies. The building envelope responds to the extreme temperature swings while maintaining optimal conditions for wine production.</p>
+
+                    <div class="project-links">
+                        <a href="#" onclick="closeProject()">← Back to Projects</a>
+                    </div>
+                `,
+
+                // Add other project contents here...
+                'komorebi-research': `
+                    <h1>Komorebi Light Patterns Research</h1>
+                    <div class="project-meta">PhD Research • EPFL • 2022-Present • Supervisor: Prof. Marilyne Andersen</div>
+                    
+                    <div class="project-description">
+                        Investigating the psychological and physiological benefits of Komorebi - the Japanese term for the interplay of light and shadow created by leaves. This research explores how these dynamic light patterns can be integrated into architectural design to enhance human well-being and connection with nature.
+                    </div>
+
+                    <h3>Research Objectives</h3>
+                    <p>This doctoral thesis, "From Komorebi to Shading: View and Light Patterns Through Shading Systems with Spatial and Temporal Dynamics," develops comprehensive metrics for better understanding natural phenomena such as Komorebi, and investigates the design integration of nature-based features that enhance human well-being.</p>
+
+                    <h3>Methodology</h3>
+                    <p>The research employs spatio-temporal metrics for Komorebi light patterns and explores their relation to human responses through empirical study of their relationship to human psychological and physiological responses. The work investigates shading systems for view filtering and indoor well-being.</p>
+
+                    <h3>Current Publications</h3>
+                    <p>Recent conference presentations include "Exploring the benefits of Komorebi light patterns: A pilot study" (CISBAT 2025) and "Spatio-temporal dynamics of Komorebi light patterns" (CIE 2025), both accepted for publication.</p>
+
+                    <div class="project-links">
+                        <a href="#publications">View Related Publications</a>
+                        <a href="#" onclick="closeProject()">← Back to Projects</a>
+                    </div>
+                `
+            };
+            
+            return contents[projectId] || `
+                <h1>Project Details</h1>
+                <p>Content for this project is being updated. Please check back soon.</p>
+                <div class="project-links">
+                    <a href="#" onclick="closeProject()">← Back to Projects</a>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
