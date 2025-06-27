@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Personal Website</title>
+    <title>Stella Zhujing Zhang - Personal Website</title>
     <style>
         * {
             margin: 0;
@@ -19,7 +19,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 40px 20px;
         }
@@ -40,8 +40,15 @@
         }
 
         .subtitle {
-            font-size: 1.1em;
+            font-size: 1.2em;
             color: #7f8c8d;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .affiliation {
+            font-size: 1em;
+            color: #34495e;
             margin-bottom: 20px;
         }
 
@@ -112,9 +119,35 @@
         }
 
         /* Publications Section */
+        .publications-header {
+            margin-bottom: 20px;
+        }
+
+        .pub-links-header {
+            font-size: 0.95em;
+            color: #7f8c8d;
+            margin-bottom: 25px;
+        }
+
+        .pub-links-header a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .pub-section {
+            margin-bottom: 40px;
+        }
+
+        .pub-section h3 {
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
         .publication {
-            margin-bottom: 30px;
-            padding-bottom: 25px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
             border-bottom: 1px solid #ecf0f1;
         }
 
@@ -122,57 +155,77 @@
             border-bottom: none;
         }
 
-        .pub-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 8px;
+        .pub-authors {
+            margin-bottom: 5px;
+            line-height: 1.5;
         }
 
-        .pub-authors {
-            color: #7f8c8d;
-            margin-bottom: 5px;
+        .author-name {
+            font-weight: bold;
+        }
+
+        .pub-title {
             font-style: italic;
+            margin-bottom: 5px;
+            color: #2c3e50;
         }
 
         .pub-venue {
             color: #27ae60;
-            font-weight: 500;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
 
-        .pub-description {
-            margin-bottom: 10px;
-            line-height: 1.6;
+        .pub-doi {
+            font-size: 0.9em;
+            color: #7f8c8d;
         }
 
-        .pub-links {
-            margin-top: 10px;
-        }
-
-        .pub-links a {
+        .pub-doi a {
             color: #3498db;
             text-decoration: none;
-            margin-right: 15px;
-            font-size: 0.9em;
-            padding: 4px 8px;
-            border: 1px solid #3498db;
-            border-radius: 3px;
-            transition: all 0.3s ease;
         }
 
-        .pub-links a:hover {
-            background-color: #3498db;
-            color: white;
-        }
-
-        /* Portfolio Section */
+        /* Projects Section */
         .project {
-            margin-bottom: 35px;
-            padding: 25px;
+            margin-bottom: 40px;
             background-color: #f8f9fa;
             border-radius: 8px;
-            border-left: 4px solid #3498db;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-visual {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.3) 2px, transparent 2px),
+                        radial-gradient(circle at 70% 20%, rgba(255,255,255,0.2) 1px, transparent 1px),
+                        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.4) 1.5px, transparent 1.5px),
+                        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.3) 2px, transparent 2px),
+                        linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            animation: lightPattern 4s ease-in-out infinite;
+        }
+
+        @keyframes lightPattern {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .project-content {
+            padding: 25px;
         }
 
         .project-title {
@@ -182,16 +235,17 @@
             margin-bottom: 10px;
         }
 
-        .project-tech {
-            color: #e74c3c;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-
         .project-description {
             margin-bottom: 15px;
             line-height: 1.6;
+            color: #555;
+        }
+
+        .project-keywords {
+            color: #e74c3c;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            font-weight: 500;
         }
 
         .project-links {
@@ -207,43 +261,6 @@
 
         .project-links a:hover {
             text-decoration: underline;
-        }
-
-        /* Writing Section */
-        .writing-item {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #ecf0f1;
-        }
-
-        .writing-item:last-child {
-            border-bottom: none;
-        }
-
-        .writing-title {
-            font-size: 1.2em;
-            color: #2c3e50;
-            margin-bottom: 8px;
-        }
-
-        .writing-title a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .writing-title a:hover {
-            color: #3498db;
-        }
-
-        .writing-date {
-            color: #7f8c8d;
-            font-size: 0.9em;
-            margin-bottom: 8px;
-        }
-
-        .writing-excerpt {
-            color: #555;
-            line-height: 1.6;
         }
 
         /* Footer */
@@ -271,9 +288,8 @@
                 gap: 15px;
             }
 
-            .pub-links a {
-                display: inline-block;
-                margin-bottom: 5px;
+            .project-image {
+                height: 200px;
             }
         }
     </style>
@@ -282,13 +298,14 @@
     <div class="container">
         <header>
             <h1>Stella Zhujing Zhang</h1>
-            <p class="subtitle">PhD Student in Computer Science | Researcher | Developer</p>
+            <p class="subtitle">PhD Student in Civil and Environmental Engineering<br>Designer | Researcher</p>
+            <p class="affiliation">École Polytechnique Fédérale de Lausanne (EPFL)<br>Under supervision of Prof. Marilyne Andersen</p>
             
             <nav>
                 <ul>
                     <li><a href="#about" class="nav-link active">About</a></li>
                     <li><a href="#publications" class="nav-link">Publications</a></li>
-                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
                 </ul>
             </nav>
         </header>
@@ -298,128 +315,127 @@
             <section id="about" class="content-section">
                 <h2>About</h2>
                 <div class="about-content">
-                    <p>Welcome to my personal website! I am a PhD student in Computer Science with a focus on machine learning and artificial intelligence. My research interests include natural language processing, computer vision, and human-computer interaction.</p>
+                    <p>Welcome to my personal website! I am a PhD student in Civil and Environmental Engineering at École Polytechnique Fédérale de Lausanne (EPFL), working under the supervision of Prof. Marilyne Andersen. My research focuses on biophilic design, light patterns, and human responses to environmental design.</p>
                     
-                    <p>I am passionate about developing innovative solutions that bridge the gap between theoretical research and practical applications. When I'm not coding or writing papers, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge through blog posts and tutorials.</p>
+                    <p>As both a designer and researcher, I am passionate about understanding how architectural and environmental design elements influence human well-being and behavior. My work explores innovative approaches to creating spaces that enhance human connection with nature through thoughtful integration of light, views, and biophilic elements.</p>
                     
-                    <p>I hold a Master's degree in Computer Science from [University Name] and have published several papers in top-tier conferences. I am currently working on my dissertation under the supervision of [Advisor Name].</p>
+                    <p>My research particularly investigates Komorebi light patterns - the interplay of light and shadow created by leaves - and their potential benefits for human psychological and physiological responses in built environments.</p>
                 </div>
 
                 <div class="contact-info">
                     <h3>Contact Information</h3>
-                    <p><strong>Email:</strong> your.email@university.edu</p>
-                    <p><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/yourname</a></p>
-                    <p><strong>GitHub:</strong> <a href="#">github.com/yourusername</a></p>
-                    <p><strong>Google Scholar:</strong> <a href="#">scholar.google.com/citations?user=...</a></p>
+                    <p><strong>Email:</strong> zhujing.zhang@epfl.ch</p>
+                    <p><strong>Institution:</strong> EPFL - École Polytechnique Fédérale de Lausanne</p>
+                    <p><strong>Laboratory:</strong> Laboratory of Integrated Performance in Design (LIPID)</p>
+                    <p><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/stella-zhujing-zhang</a></p>
+                    <p><strong>Google Scholar:</strong> <a href="https://scholar.google.com/citations?user=j9LP71AAAAAJ">Google Scholar Profile</a></p>
                 </div>
             </section>
 
             <!-- Publications Section -->
             <section id="publications" class="content-section hidden">
-                <h2>Publications</h2>
+                <div class="publications-header">
+                    <h2>Academic Publications</h2>
+                    <div class="pub-links-header">
+                        <a href="https://scholar.google.com/citations?user=j9LP71AAAAAJ">Google Scholar</a> | 
+                        <a href="#">ResearchGate</a> | 
+                        <a href="#">ORCID</a> | 
+                        Publications by project are also included within each project page.
+                    </div>
+                </div>
                 
-                <div class="publication">
-                    <div class="pub-title">Deep Learning Approaches for Natural Language Understanding</div>
-                    <div class="pub-authors">Your Name, Co-Author Name, Senior Author</div>
-                    <div class="pub-venue">Conference on Neural Information Processing Systems (NeurIPS), 2024</div>
-                    <div class="pub-description">
-                        This paper presents novel deep learning architectures for improved natural language understanding, achieving state-of-the-art results on multiple benchmark datasets.
-                    </div>
-                    <div class="pub-links">
-                        <a href="#">PDF</a>
-                        <a href="#">Code</a>
-                        <a href="#">BibTeX</a>
+                <div class="pub-section">
+                    <h3>Journal Articles</h3>
+                    
+                    <div class="publication">
+                        <div class="pub-authors">
+                            <span class="author-name">Zhang, Zhujing</span>, and Andersen, Marilyne.
+                        </div>
+                        <div class="pub-title">"A Review of the Effectiveness of Metrics for Assessing Human Responses to Biophilic Environments Involving Views, Shading, and Interior Design Elements"</div>
+                        <div class="pub-venue">Journal of Environmental Psychology, 2025 (accepted)</div>
                     </div>
                 </div>
 
-                <div class="publication">
-                    <div class="pub-title">Multimodal Learning for Human-Computer Interaction</div>
-                    <div class="pub-authors">Your Name, Research Partner, Advisor Name</div>
-                    <div class="pub-venue">ACM Conference on Human Factors in Computing Systems (CHI), 2024</div>
-                    <div class="pub-description">
-                        We explore multimodal learning techniques that combine visual and textual information to improve human-computer interaction systems.
+                <div class="pub-section">
+                    <h3>Conference Articles</h3>
+                    
+                    <div class="publication">
+                        <div class="pub-authors">
+                            <span class="author-name">Zhang, Zhujing</span>, and Andersen, Marilyne.
+                        </div>
+                        <div class="pub-title">"Exploring the benefits of Komorebi light patterns: A pilot study"</div>
+                        <div class="pub-venue">2025 CISBAT International Conference, 2025 (accepted)</div>
                     </div>
-                    <div class="pub-links">
-                        <a href="#">PDF</a>
-                        <a href="#">Demo</a>
-                        <a href="#">Dataset</a>
-                    </div>
-                </div>
 
-                <div class="publication">
-                    <div class="pub-title">Efficient Training Methods for Large Language Models</div>
-                    <div class="pub-authors">Your Name, Collaborator A, Collaborator B</div>
-                    <div class="pub-venue">International Conference on Machine Learning (ICML), 2023</div>
-                    <div class="pub-description">
-                        This work introduces novel training optimization techniques that reduce computational costs while maintaining model performance for large language models.
-                    </div>
-                    <div class="pub-links">
-                        <a href="#">PDF</a>
-                        <a href="#">Code</a>
-                        <a href="#">Slides</a>
+                    <div class="publication">
+                        <div class="pub-authors">
+                            <span class="author-name">Zhang, Zhujing</span>, and Andersen, Prof. Marilyne.
+                        </div>
+                        <div class="pub-title">"Spatio-temporal dynamics of Komorebi light patterns"</div>
+                        <div class="pub-venue">2025 CIE International Conference, 2025 (accepted)</div>
                     </div>
                 </div>
             </section>
 
-            <!-- Portfolio Section -->
-            <section id="portfolio" class="content-section hidden">
-                <h2>Portfolio</h2>
+            <!-- Projects Section -->
+            <section id="projects" class="content-section hidden">
+                <h2>Projects</h2>
                 
                 <div class="project">
-                    <div class="project-title">AI-Powered Research Assistant</div>
-                    <div class="project-tech">Python, TensorFlow, React, FastAPI</div>
-                    <div class="project-description">
-                        Developed an intelligent research assistant that helps researchers discover relevant papers, summarize content, and identify research gaps using advanced NLP techniques.
+                    <div class="project-image">
+                        <div class="project-visual"></div>
                     </div>
-                    <div class="project-links">
-                        <a href="#">Live Demo</a>
-                        <a href="#">GitHub</a>
-                    </div>
-                </div>
-
-                <div class="project">
-                    <div class="project-title">Multimodal Data Visualization Tool</div>
-                    <div class="project-tech">JavaScript, D3.js, Python, Flask</div>
-                    <div class="project-description">
-                        Created an interactive visualization tool for exploring multimodal datasets, featuring real-time updates and collaborative features for research teams.
-                    </div>
-                    <div class="project-links">
-                        <a href="#">Live Demo</a>
-                        <a href="#">GitHub</a>
-                        <a href="#">Documentation</a>
+                    <div class="project-content">
+                        <div class="project-title">Komorebi Light Patterns Research</div>
+                        <div class="project-keywords">Biophilic Design | Light Simulation | Human Response | Environmental Psychology</div>
+                        <div class="project-description">
+                            Investigating the psychological and physiological benefits of Komorebi - the Japanese term for the interplay of light and shadow created by leaves. This research explores how these dynamic light patterns can be integrated into architectural design to enhance human well-being and connection with nature.
+                        </div>
+                        <div class="project-links">
+                            <a href="#">Research Details</a>
+                            <a href="#">Publications</a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="project">
-                    <div class="project-title">Open Source ML Library</div>
-                    <div class="project-tech">Python, PyTorch, NumPy, Scikit-learn</div>
-                    <div class="project-description">
-                        Contributed to and maintained an open-source machine learning library focused on interpretability and fairness in AI systems, with over 1,000 GitHub stars.
+                    <div class="project-image">
+                        <div class="project-visual" style="background: linear-gradient(45deg, #a8e6cf 0%, #dcedc1 25%, #ffd3a5 50%, #ffa085 75%, #ff8a80 100%);"></div>
                     </div>
-                    <div class="project-links">
-                        <a href="#">GitHub</a>
-                        <a href="#">Documentation</a>
-                        <a href="#">PyPI</a>
+                    <div class="project-content">
+                        <div class="project-title">Biophilic Environment Assessment Metrics</div>
+                        <div class="project-keywords">Metrics Development | Biophilic Design | Human-Environment Interaction | Assessment Tools</div>
+                        <div class="project-description">
+                            Comprehensive review and development of metrics for assessing human responses to biophilic environments. This work focuses on evaluating the effectiveness of various measurement approaches for views, shading, and interior design elements that connect occupants with natural environments.
+                        </div>
+                        <div class="project-links">
+                            <a href="#">Methodology</a>
+                            <a href="#">Findings</a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="project">
-                    <div class="project-title">Educational Platform for AI Ethics</div>
-                    <div class="project-tech">Vue.js, Node.js, MongoDB, Docker</div>
-                    <div class="project-description">
-                        Built an educational platform that teaches AI ethics through interactive case studies and simulations, used by over 500 students across multiple universities.
+                    <div class="project-image">
+                        <div class="project-visual" style="background: radial-gradient(circle at center, #74b9ff 0%, #0984e3 50%, #2d3436 100%);"></div>
                     </div>
-                    <div class="project-links">
-                        <a href="#">Live Demo</a>
-                        <a href="#">GitHub</a>
+                    <div class="project-content">
+                        <div class="project-title">Spatio-temporal Light Dynamics</div>
+                        <div class="project-keywords">Light Simulation | Temporal Analysis | Spatial Patterns | Computational Design</div>
+                        <div class="project-description">
+                            Advanced computational analysis of how light patterns change across space and time in natural and built environments. This project develops new methods for understanding and predicting the dynamic nature of natural light phenomena and their integration into architectural design.
+                        </div>
+                        <div class="project-links">
+                            <a href="#">Simulation Tools</a>
+                            <a href="#">Case Studies</a>
+                        </div>
                     </div>
                 </div>
             </section>
-
         </main>
 
         <footer>
-            <p>&copy; 2025 Stella Zhujing Zhang. All rights reserved.</p>
+            <p>&copy; 2024 Stella Zhujing Zhang. All rights reserved.</p>
         </footer>
     </div>
 
