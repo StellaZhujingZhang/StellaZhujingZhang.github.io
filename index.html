@@ -150,7 +150,7 @@
         /* CV PDF Display */
         .cv-pdf-container {
             width: 100%;
-            height: calc(100vh - 200px);
+            height: calc(100vh - 300px);
             margin-top: 20px;
             position: relative;
         }
@@ -164,9 +164,10 @@
 
         .cv-controls {
             margin-bottom: 20px;
+            text-align: right;
         }
 
-        .cv-back-button {
+        .cv-download-button {
             background-color: #3498db;
             color: white;
             padding: 10px 20px;
@@ -179,8 +180,9 @@
             transition: background-color 0.3s ease;
         }
 
-        .cv-back-button:hover {
+        .cv-download-button:hover {
             background-color: #2980b9;
+            color: white;
         }
 
         .cv-fallback {
@@ -671,7 +673,7 @@
             <!-- CV Section -->
             <section id="cv" class="content-section hidden">
                 <div class="cv-controls">
-                    <button onclick="showNavigation()" class="cv-back-button">← Back to Navigation</button>
+                    <a href="cv.pdf" download class="cv-download-button">Download CV</a>
                 </div>
 
                 <div class="cv-pdf-container">
@@ -1083,9 +1085,6 @@
                         
                         // Special handling for CV section
                         if (targetId === 'cv') {
-                            // Hide navigation when showing CV
-                            document.querySelector('nav').style.visibility = 'hidden';
-                            
                             // Check if iframe loads properly after a delay
                             setTimeout(() => {
                                 const iframe = document.querySelector('.cv-pdf-embed');
@@ -1094,9 +1093,6 @@
                                     document.getElementById('cv-fallback').style.display = 'block';
                                 }
                             }, 1000);
-                        } else {
-                            // Show navigation for other sections
-                            document.querySelector('nav').style.visibility = 'visible';
                         }
                     }
                 });
