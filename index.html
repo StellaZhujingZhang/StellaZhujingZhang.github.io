@@ -150,8 +150,9 @@
         /* CV PDF Display */
         .cv-pdf-container {
             width: 100%;
-            height: 80vh;
-            margin-bottom: 20px;
+            height: calc(100vh - 200px);
+            margin-top: 20px;
+            position: relative;
         }
 
         .cv-pdf-embed {
@@ -162,7 +163,6 @@
         }
 
         .cv-controls {
-            text-align: center;
             margin-bottom: 20px;
         }
 
@@ -188,12 +188,20 @@
             padding: 40px;
             background-color: #f8f9fa;
             border-radius: 8px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 400px;
         }
 
         .cv-fallback a {
             color: #3498db;
             text-decoration: none;
             font-weight: 500;
+            display: inline-block;
+            margin: 10px;
         }
 
         .cv-fallback a:hover {
@@ -662,18 +670,16 @@
 
             <!-- CV Section -->
             <section id="cv" class="content-section hidden">
-                <h2>Curriculum Vitae</h2>
-                
                 <div class="cv-controls">
                     <button onclick="showNavigation()" class="cv-back-button">← Back to Navigation</button>
                 </div>
 
                 <div class="cv-pdf-container">
-                    <embed src="cv.pdf" type="application/pdf" class="cv-pdf-embed">
+                    <iframe src="cv.pdf" class="cv-pdf-embed" title="Curriculum Vitae"></iframe>
                     
-                    <!-- Fallback for browsers that don't support embed -->
-                    <div class="cv-fallback" style="display: none;">
-                        <p>Your browser doesn't support embedded PDFs. You can:</p>
+                    <!-- Fallback message -->
+                    <div class="cv-fallback" id="cv-fallback" style="display: none;">
+                        <p>If the PDF is not displaying properly, you can:</p>
                         <p><a href="cv.pdf" target="_blank">Open CV in a new tab</a></p>
                         <p>or</p>
                         <p><a href="cv.pdf" download>Download CV</a></p>
@@ -1056,15 +1062,6 @@
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('.content-section');
 
-            // Check if PDF embed is supported
-            const embedElement = document.querySelector('.cv-pdf-embed');
-            if (embedElement && !embedElement.clientHeight) {
-                // If embed doesn't work, show fallback
-                document.querySelector('.cv-pdf-container').style.display = 'none';
-                document.querySelector('.cv-fallback').style.display = 'block';
-                document.getElementById('cv-text-content').style.display = 'block';
-            }
-
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1088,6 +1085,15 @@
                         if (targetId === 'cv') {
                             // Hide navigation when showing CV
                             document.querySelector('nav').style.visibility = 'hidden';
+                            
+                            // Check if iframe loads properly after a delay
+                            setTimeout(() => {
+                                const iframe = document.querySelector('.cv-pdf-embed');
+                                if (!iframe || !iframe.contentDocument || iframe.contentDocument.documentElement.scrollHeight < 100) {
+                                    // If iframe didn't load properly, show fallback
+                                    document.getElementById('cv-fallback').style.display = 'block';
+                                }
+                            }, 1000);
                         } else {
                             // Show navigation for other sections
                             document.querySelector('nav').style.visibility = 'visible';
