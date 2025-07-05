@@ -147,20 +147,57 @@
             margin-bottom: 8px;
         }
 
-        .cv-download {
+        /* CV PDF Display */
+        .cv-pdf-container {
+            width: 100%;
+            height: 80vh;
+            margin-bottom: 20px;
+        }
+
+        .cv-pdf-embed {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .cv-controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .cv-back-button {
             background-color: #3498db;
             color: white;
-            padding: 12px 20px;
+            padding: 10px 20px;
+            border: none;
             border-radius: 6px;
+            font-size: 1em;
+            cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            margin-top: 20px;
             transition: background-color 0.3s ease;
         }
 
-        .cv-download:hover {
+        .cv-back-button:hover {
             background-color: #2980b9;
-            color: white;
+        }
+
+        .cv-fallback {
+            text-align: center;
+            padding: 40px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .cv-fallback a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .cv-fallback a:hover {
+            text-decoration: underline;
         }
 
         /* CV Sections */
@@ -512,25 +549,6 @@
             text-decoration: underline;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .project-nav {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-            }
-
-            .project-detail-content {
-                max-width: 100%;
-            }
-        }
-
-
         /* Footer */
         footer {
             text-align: center;
@@ -565,6 +583,21 @@
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .project-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .project-detail-content {
+                max-width: 100%;
+            }
         }
 
         @media (max-width: 600px) {
@@ -597,6 +630,7 @@
             <nav>
                 <ul>
                     <li><a href="#about" class="nav-link active">About</a></li>
+                    <li><a href="#cv" class="nav-link">CV</a></li>
                     <li><a href="#publications" class="nav-link">Publications</a></li>
                     <li><a href="#projects" class="nav-link">Projects</a></li>
                 </ul>
@@ -609,8 +643,6 @@
                 <h2>About</h2>
                 <div class="about-layout">
                     <div class="profile-image">
-                        <!-- To add your photo, replace this div with: -->
-                        <!-- <img src="path/to/your/photo.jpg" alt="Stella Zhujing Zhang"> -->
                         <img src="profile.jpg" alt="Stella Zhujing Zhang">
                     </div>
                     <div class="about-content">
@@ -620,116 +652,138 @@
                     </div>
                 </div>
 
-                <div class="cv-section">
-                    <h3>Education</h3>
-                    <div class="cv-item">
-                        <div class="cv-header">
-                            <span class="cv-title">PhD in Civil and Environmental Engineering</span>
-                            <span class="cv-date">Sep 2022 - Present</span>
-                        </div>
-                        <div class="cv-institution">École Polytechnique Fédérale de Lausanne (EPFL) — Lausanne, Switzerland</div>
-                        <div class="cv-detail">Thesis: "From Komorebi to Shading: View and Light Patterns Through Shading Systems with Spatial and Temporal Dynamics"</div>
-                    </div>
-                    
-                    <div class="cv-item">
-                        <div class="cv-header">
-                            <span class="cv-title">Master of Science in Building Technology</span>
-                            <span class="cv-date">Sep 2020 - May 2022</span>
-                        </div>
-                        <div class="cv-institution">Massachusetts Institute of Technology (MIT) — Cambridge, MA, USA</div>
-                    </div>
-                    
-                    <div class="cv-item">
-                        <div class="cv-header">
-                            <span class="cv-title">Master of Architecture</span>
-                            <span class="cv-date">Sep 2016 - Feb 2020</span>
-                        </div>
-                        <div class="cv-institution">Massachusetts Institute of Technology (MIT) — Cambridge, MA, USA</div>
-                    </div>
-                    
-                    <div class="cv-item">
-                        <div class="cv-header">
-                            <span class="cv-title">Bachelor of Science in Architecture</span>
-                            <span class="cv-date">Sep 2011 - Apr 2015</span>
-                        </div>
-                        <div class="cv-institution">University of Michigan — Ann Arbor, MI, USA</div>
-                        <div class="cv-detail">Wallenberg Thesis Award, University Honor</div>
-                    </div>
-                </div>
-
-                <div class="cv-section">
-                    <h3>Research Experience</h3>
-                    <div class="cv-item">
-                        <div class="cv-header">
-                            <span class="cv-title">PhD Researcher</span>
-                            <span class="cv-date">2022 - Present</span>
-                        </div>
-                        <div class="cv-institution">EPFL Laboratory of Integrated Performance in Design (LIPID) — Lausanne, Switzerland</div>
-                        <ul class="cv-bullets">
-                            <li>Developing spatio-temporal metrics for Komorebi light patterns and exploring their relation to human responses</li>
-                            <li>Investigating shading systems for view filtering and indoor well-being</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="cv-item">
-                        <div class="cv-header">
-                            <span class="cv-title">Research Assistant</span>
-                            <span class="cv-date">2020 - 2022</span>
-                        </div>
-                        <div class="cv-institution">MIT School of Architecture and Planning — Cambridge, MA, USA</div>
-                        <ul class="cv-bullets">
-                            <li>Researched neighborhood peak load and thermal comfort optimization</li>
-                            <li>Developed machine learning models as surrogates for physics-based simulations</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="cv-item">
-                        <div class="cv-header">
-                            <span class="cv-title">Research Assistant</span>
-                            <span class="cv-date">2014 - 2015</span>
-                        </div>
-                        <div class="cv-institution">University of Michigan — Ann Arbor, MI, USA</div>
-                        <ul class="cv-bullets">
-                            <li>Developed robotic manipulation methods for fabric-formed architectural modeling</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="cv-section">
-                    <h3>Professional Experience</h3>
-                    <div class="cv-item">
-                        <div class="cv-header">
-                            <span class="cv-title">Architect</span>
-                            <span class="cv-date">2015 - 2016</span>
-                        </div>
-                        <div class="cv-institution">Myefski Architects — Evanston, IL, USA</div>
-                        <ul class="cv-bullets">
-                            <li>Contributed to residential and commercial design development</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="cv-section">
-                    <h3>Key Skills</h3>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h4>Research</h4>
-                            <p>Light simulation, EnergyPlus, Climate Studio, Machine learning, Statistical analysis, Image processing, Optimization, Human response assessment</p>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Design</h4>
-                            <p>Rhino, Grasshopper, Digital fabrication, Adobe Creative Suite, Physical prototyping, Parametric design</p>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="contact-info">
                     <h3>Contact Information</h3>
                     <p><strong>Email:</strong> zhujing.zhang@epfl.ch</p>
-                    <p><strong>Phone:</strong> +41 21 693 91 24</p>
                     <p><strong>Institution:</strong> EPFL - École Polytechnique Fédérale de Lausanne</p>
-                    <p><strong>Laboratory:</strong> Laboratory of Integrated Performance in Design (LIPID)</p>                    
-                    <a href="/cv.pdf" class="cv-download" download>Download CV</a>
+                    <p><strong>Laboratory:</strong> Laboratory of Integrated Performance in Design (LIPID)</p>
+                </div>
+            </section>
+
+            <!-- CV Section -->
+            <section id="cv" class="content-section hidden">
+                <h2>Curriculum Vitae</h2>
+                
+                <div class="cv-controls">
+                    <button onclick="showNavigation()" class="cv-back-button">← Back to Navigation</button>
+                </div>
+
+                <div class="cv-pdf-container">
+                    <embed src="cv.pdf" type="application/pdf" class="cv-pdf-embed">
+                    
+                    <!-- Fallback for browsers that don't support embed -->
+                    <div class="cv-fallback" style="display: none;">
+                        <p>Your browser doesn't support embedded PDFs. You can:</p>
+                        <p><a href="cv.pdf" target="_blank">Open CV in a new tab</a></p>
+                        <p>or</p>
+                        <p><a href="cv.pdf" download>Download CV</a></p>
+                    </div>
+                </div>
+
+                <!-- Text-based CV content as fallback -->
+                <div id="cv-text-content" style="display: none;">
+                    <div class="cv-section">
+                        <h3>Education</h3>
+                        <div class="cv-item">
+                            <div class="cv-header">
+                                <span class="cv-title">PhD in Civil and Environmental Engineering</span>
+                                <span class="cv-date">Sep 2022 - Present</span>
+                            </div>
+                            <div class="cv-institution">École Polytechnique Fédérale de Lausanne (EPFL) — Lausanne, Switzerland</div>
+                            <div class="cv-detail">Thesis: "From Komorebi to Shading: View and Light Patterns Through Shading Systems with Spatial and Temporal Dynamics"</div>
+                        </div>
+                        
+                        <div class="cv-item">
+                            <div class="cv-header">
+                                <span class="cv-title">Master of Science in Building Technology</span>
+                                <span class="cv-date">Sep 2020 - May 2022</span>
+                            </div>
+                            <div class="cv-institution">Massachusetts Institute of Technology (MIT) — Cambridge, MA, USA</div>
+                        </div>
+                        
+                        <div class="cv-item">
+                            <div class="cv-header">
+                                <span class="cv-title">Master of Architecture</span>
+                                <span class="cv-date">Sep 2016 - Feb 2020</span>
+                            </div>
+                            <div class="cv-institution">Massachusetts Institute of Technology (MIT) — Cambridge, MA, USA</div>
+                        </div>
+                        
+                        <div class="cv-item">
+                            <div class="cv-header">
+                                <span class="cv-title">Bachelor of Science in Architecture</span>
+                                <span class="cv-date">Sep 2011 - Apr 2015</span>
+                            </div>
+                            <div class="cv-institution">University of Michigan — Ann Arbor, MI, USA</div>
+                            <div class="cv-detail">Wallenberg Thesis Award, University Honor</div>
+                        </div>
+                    </div>
+
+                    <div class="cv-section">
+                        <h3>Research Experience</h3>
+                        <div class="cv-item">
+                            <div class="cv-header">
+                                <span class="cv-title">PhD Researcher</span>
+                                <span class="cv-date">2022 - Present</span>
+                            </div>
+                            <div class="cv-institution">EPFL Laboratory of Integrated Performance in Design (LIPID) — Lausanne, Switzerland</div>
+                            <ul class="cv-bullets">
+                                <li>Developing spatio-temporal metrics for Komorebi light patterns and exploring their relation to human responses</li>
+                                <li>Investigating shading systems for view filtering and indoor well-being</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cv-item">
+                            <div class="cv-header">
+                                <span class="cv-title">Research Assistant</span>
+                                <span class="cv-date">2020 - 2022</span>
+                            </div>
+                            <div class="cv-institution">MIT School of Architecture and Planning — Cambridge, MA, USA</div>
+                            <ul class="cv-bullets">
+                                <li>Researched neighborhood peak load and thermal comfort optimization</li>
+                                <li>Developed machine learning models as surrogates for physics-based simulations</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cv-item">
+                            <div class="cv-header">
+                                <span class="cv-title">Research Assistant</span>
+                                <span class="cv-date">2014 - 2015</span>
+                            </div>
+                            <div class="cv-institution">University of Michigan — Ann Arbor, MI, USA</div>
+                            <ul class="cv-bullets">
+                                <li>Developed robotic manipulation methods for fabric-formed architectural modeling</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="cv-section">
+                        <h3>Professional Experience</h3>
+                        <div class="cv-item">
+                            <div class="cv-header">
+                                <span class="cv-title">Architect</span>
+                                <span class="cv-date">2015 - 2016</span>
+                            </div>
+                            <div class="cv-institution">Myefski Architects — Evanston, IL, USA</div>
+                            <ul class="cv-bullets">
+                                <li>Contributed to residential and commercial design development</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="cv-section">
+                        <h3>Key Skills</h3>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>Research</h4>
+                                <p>Light simulation, EnergyPlus, Climate Studio, Machine learning, Statistical analysis, Image processing, Optimization, Human response assessment</p>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Design</h4>
+                                <p>Rhino, Grasshopper, Digital fabrication, Adobe Creative Suite, Physical prototyping, Parametric design</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -1002,6 +1056,15 @@
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('.content-section');
 
+            // Check if PDF embed is supported
+            const embedElement = document.querySelector('.cv-pdf-embed');
+            if (embedElement && !embedElement.clientHeight) {
+                // If embed doesn't work, show fallback
+                document.querySelector('.cv-pdf-container').style.display = 'none';
+                document.querySelector('.cv-fallback').style.display = 'block';
+                document.getElementById('cv-text-content').style.display = 'block';
+            }
+
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1020,10 +1083,26 @@
                     const targetSection = document.getElementById(targetId);
                     if (targetSection) {
                         targetSection.classList.remove('hidden');
+                        
+                        // Special handling for CV section
+                        if (targetId === 'cv') {
+                            // Hide navigation when showing CV
+                            document.querySelector('nav').style.visibility = 'hidden';
+                        } else {
+                            // Show navigation for other sections
+                            document.querySelector('nav').style.visibility = 'visible';
+                        }
                     }
                 });
             });
         });
+
+        // Function to show navigation (for CV back button)
+        function showNavigation() {
+            document.querySelector('nav').style.visibility = 'visible';
+            // Trigger click on About tab
+            document.querySelector('a[href="#about"]').click();
+        }
 
         // Project detail functionality
         function openProject(projectId) {
