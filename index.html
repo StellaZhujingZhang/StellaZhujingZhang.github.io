@@ -612,15 +612,141 @@
         /* Project Detail PDF Display */
         .project-detail-pdf-container {
             width: 100%;
-            height: calc(100vh - 150px);
+            height: calc(100vh - 300px);
             margin-top: 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
         }
 
-        .project-pdf-embed {
+        .project-pdf-display {
             width: 100%;
             height: 100%;
-            border: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .pdf-canvas-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .pdf-canvas {
+            max-width: 90%;
+            max-height: 90%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             border-radius: 4px;
+            background-color: white;
+        }
+
+        .pdf-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: rgba(255,255,255,0.9);
+            padding: 10px 20px;
+            border-radius: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .pdf-nav-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .pdf-nav-button:hover:not(:disabled) {
+            background-color: #2980b9;
+        }
+
+        .pdf-nav-button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .pdf-page-info {
+            font-size: 14px;
+            color: #2c3e50;
+            font-weight: 500;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .pdf-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #7f8c8d;
+        }
+
+        .pdf-loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .pdf-error {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #e74c3c;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .pdf-error button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .pdf-error button:hover {
+            background-color: #2980b9;
         }
 
         /* Footer */
@@ -681,6 +807,21 @@
             .pub-image {
                 width: 100%;
                 height: 150px;
+            }
+
+            .pdf-controls {
+                bottom: 10px;
+                padding: 8px 15px;
+            }
+            
+            .pdf-nav-button {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+            
+            .pdf-page-info {
+                font-size: 12px;
+                min-width: 80px;
             }
         }
 
@@ -1085,6 +1226,42 @@
                             <div class="project-tags">Traditional Art | Landscape | Cultural Heritage</div>
                         </div>
                     </div>
+
+                    <div class="project-card" onclick="openProject('robopinch')">
+                        <div class="project-image">
+                            <div class="project-visual"></div>
+                        </div>
+                        <div class="project-info">
+                            <h4>RoboPinch</h4>
+                            <p class="project-year">2014-2015</p>
+                            <p class="project-brief">Robotic manipulation of fabric formwork for creating plaster architectural models, exploring digital-physical translation.</p>
+                            <div class="project-tags">Digital Fabrication | Robotic | Research</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="openProject('curving')">
+                        <div class="project-image">
+                            <div class="project-visual"></div>
+                        </div>
+                        <div class="project-info">
+                            <h4>Curving</h4>
+                            <p class="project-year">2017</p>
+                            <p class="project-brief">Precision in robotic hot-wire cutting, generating curved forms through optimized tool paths and intersection algorithms.</p>
+                            <div class="project-tags">Robotic Fabrication | Hot-wire Cutting | Precision</div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="openProject('tracing-the-walk')">
+                        <div class="project-image">
+                            <div class="project-visual"></div>
+                        </div>
+                        <div class="project-info">
+                            <h4>Tracing the Walk</h4>
+                            <p class="project-year">2016</p>
+                            <p class="project-brief">Responsive temporal installation registering subtle walking motion through delicate surface materials and unified wave motion.</p>
+                            <div class="project-tags">Responsive Design | Temporal | Motion</div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -1096,7 +1273,34 @@
                 </div>
                 
                 <div class="project-detail-pdf-container">
-                    <iframe id="project-pdf-viewer" src="" class="project-pdf-embed" title="Project Portfolio"></iframe>
+                    <div class="project-pdf-display" id="pdf-display">
+                        <div class="pdf-loading" id="pdf-loading">
+                            <div class="pdf-loading-spinner"></div>
+                            <p>Loading PDF...</p>
+                        </div>
+                        
+                        <div class="pdf-canvas-container" id="pdf-canvas-container" style="display: none;">
+                            <canvas id="pdf-canvas" class="pdf-canvas"></canvas>
+                        </div>
+                        
+                        <div class="pdf-error" id="pdf-error" style="display: none;">
+                            <h3>Unable to load PDF</h3>
+                            <p>The PDF file could not be loaded. Please try again or download the file directly.</p>
+                            <button onclick="retryPdfLoad()">Retry</button>
+                        </div>
+                        
+                        <div class="pdf-controls" id="pdf-controls" style="display: none;">
+                            <button class="pdf-nav-button" id="prev-page" onclick="previousPage()">
+                                ← Previous
+                            </button>
+                            <div class="pdf-page-info" id="page-info">
+                                Page 1 of 1
+                            </div>
+                            <button class="pdf-nav-button" id="next-page" onclick="nextPage()">
+                                Next →
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
@@ -1106,6 +1310,7 @@
         </footer>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
     <script>
         // Simple navigation functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -1147,6 +1352,136 @@
             });
         });
 
+        // PDF.js integration
+        const pdfjsLib = window['pdfjs-dist/build/pdf'];
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
+
+        let currentPdf = null;
+        let currentPage = 1;
+        let totalPages = 1;
+        let currentScale = 1;
+
+        // Function to load and display PDF
+        async function loadPDF(url) {
+            const loadingEl = document.getElementById('pdf-loading');
+            const canvasContainer = document.getElementById('pdf-canvas-container');
+            const errorEl = document.getElementById('pdf-error');
+            const controlsEl = document.getElementById('pdf-controls');
+            
+            // Show loading state
+            loadingEl.style.display = 'block';
+            canvasContainer.style.display = 'none';
+            errorEl.style.display = 'none';
+            controlsEl.style.display = 'none';
+            
+            try {
+                // Load PDF
+                const pdf = await pdfjsLib.getDocument(url).promise;
+                currentPdf = pdf;
+                totalPages = pdf.numPages;
+                currentPage = 1;
+                
+                // Hide loading and show canvas
+                loadingEl.style.display = 'none';
+                canvasContainer.style.display = 'flex';
+                controlsEl.style.display = 'flex';
+                
+                // Render first page
+                await renderPage(1);
+                updatePageInfo();
+                
+            } catch (error) {
+                console.error('Error loading PDF:', error);
+                loadingEl.style.display = 'none';
+                errorEl.style.display = 'block';
+            }
+        }
+
+        // Function to render a specific page
+        async function renderPage(pageNumber) {
+            if (!currentPdf) return;
+            
+            const page = await currentPdf.getPage(pageNumber);
+            const canvas = document.getElementById('pdf-canvas');
+            const context = canvas.getContext('2d');
+            
+            // Calculate scale to fit container
+            const container = document.getElementById('pdf-canvas-container');
+            const containerWidth = container.clientWidth * 0.9;
+            const containerHeight = container.clientHeight * 0.9;
+            
+            const viewport = page.getViewport({ scale: 1 });
+            const scaleX = containerWidth / viewport.width;
+            const scaleY = containerHeight / viewport.height;
+            currentScale = Math.min(scaleX, scaleY);
+            
+            const scaledViewport = page.getViewport({ scale: currentScale });
+            
+            // Set canvas dimensions
+            canvas.width = scaledViewport.width;
+            canvas.height = scaledViewport.height;
+            
+            // Render page
+            const renderContext = {
+                canvasContext: context,
+                viewport: scaledViewport
+            };
+            
+            await page.render(renderContext).promise;
+        }
+
+        // Navigation functions
+        async function previousPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                await renderPage(currentPage);
+                updatePageInfo();
+            }
+        }
+
+        async function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                await renderPage(currentPage);
+                updatePageInfo();
+            }
+        }
+
+        // Update page info and button states
+        function updatePageInfo() {
+            document.getElementById('page-info').textContent = `Page ${currentPage} of ${totalPages}`;
+            document.getElementById('prev-page').disabled = currentPage === 1;
+            document.getElementById('next-page').disabled = currentPage === totalPages;
+        }
+
+        // Retry function
+        function retryPdfLoad() {
+            const currentUrl = document.getElementById('pdf-canvas').getAttribute('data-current-url');
+            if (currentUrl) {
+                loadPDF(currentUrl);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById('pdf-canvas-container').style.display === 'flex') {
+                if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    previousPage();
+                } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    nextPage();
+                }
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (currentPdf && currentPage) {
+                renderPage(currentPage);
+            }
+        });
+
         // Project detail functionality
         function openProject(projectId) {
             // Hide projects section and show project detail
@@ -1156,9 +1491,11 @@
             // Update navigation title
             document.getElementById('project-nav-title').textContent = getProjectTitle(projectId);
             
-            // Load project PDF
-            const pdfViewer = document.getElementById('project-pdf-viewer');
-            pdfViewer.src = getProjectPDF(projectId);
+            // Load project PDF with new system
+            const pdfUrl = getProjectPDF(projectId);
+            const canvas = document.getElementById('pdf-canvas');
+            canvas.setAttribute('data-current-url', pdfUrl);
+            loadPDF(pdfUrl);
         }
 
         function closeProject() {
@@ -1166,8 +1503,11 @@
             document.getElementById('project-detail').classList.add('hidden');
             document.getElementById('projects').classList.remove('hidden');
             
-            // Clear PDF src to stop loading
-            document.getElementById('project-pdf-viewer').src = '';
+            // Clear PDF data
+            currentPdf = null;
+            currentPage = 1;
+            totalPages = 1;
+            document.getElementById('pdf-canvas').removeAttribute('data-current-url');
         }
 
         function getProjectTitle(projectId) {
@@ -1177,7 +1517,10 @@
                 'shelter-people-plants': 'Shelter for People and Plants',
                 'reciproco-winery': 'RECÍPROCO: Winery in Baja',
                 'play-in-circle': 'Play in Circle: YMCA Proposal',
-                'landscape-painting': '意境·意思 Chinese Landscape Painting'
+                'landscape-painting': '意境·意思 Chinese Landscape Painting',
+                'robopinch': 'RoboPinch',
+                'curving': 'Curving',
+                'tracing-the-walk': 'Tracing the Walk'
             };
             return titles[projectId] || 'Project';
         }
@@ -1189,7 +1532,10 @@
                 'shelter-people-plants': 'project-shelter-people-plants.pdf',
                 'reciproco-winery': 'project-reciproco-winery.pdf',
                 'play-in-circle': 'project-play-in-circle.pdf',
-                'landscape-painting': 'project-landscape-painting.pdf'
+                'landscape-painting': 'project-landscape-painting.pdf',
+                'robopinch': 'project-robopinch.pdf',
+                'curving': 'project-curving.pdf',
+                'tracing-the-walk': 'project-tracing-the-walk.pdf'
             };
             return pdfs[projectId] || '';
         }
