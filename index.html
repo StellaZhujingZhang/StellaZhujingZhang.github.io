@@ -506,8 +506,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
             border-bottom: 1px solid #eee;
         }
 
@@ -535,8 +535,8 @@
         /* Enhanced PDF Display - Full Screen */
         .project-detail-pdf-container {
             width: 100vw;
-            height: calc(100vh - 150px);
-            margin-top: 20px;
+            height: calc(100vh - 120px);
+            margin-top: 10px;
             position: relative;
             left: 50%;
             right: 50%;
@@ -723,6 +723,20 @@
             border-top: 1px solid #eee;
             color: #7f8c8d;
             font-size: 0.9em;
+        }
+
+        /* Footer for project detail pages */
+        #project-detail footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin-top: 0;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid #eee;
+            z-index: 1000;
         }
 
         /* Responsive Design */
