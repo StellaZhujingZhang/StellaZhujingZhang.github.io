@@ -506,7 +506,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             padding-bottom: 15px;
             border-bottom: 1px solid #eee;
         }
@@ -532,95 +532,23 @@
             font-weight: 500;
         }
 
-        .project-detail-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .project-detail-content h1 {
-            font-size: 2em;
-            color: #2c3e50;
-            margin-bottom: 8px;
-            font-weight: normal;
-        }
-
-        .project-detail-content .project-meta {
-            color: #7f8c8d;
-            margin-bottom: 25px;
-            font-size: 1em;
-        }
-
-        .project-detail-content .project-description {
-            font-size: 1.05em;
-            line-height: 1.6;
-            color: #444;
-            margin-bottom: 30px;
-        }
-
-        .project-detail-content .detail-image {
-            width: 100%;
-            margin: 25px 0;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .project-detail-content .detail-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .project-detail-content .image-caption {
-            font-size: 0.9em;
-            color: #7f8c8d;
-            text-align: center;
-            margin-top: 8px;
-            font-style: italic;
-        }
-
-        .project-detail-content h3 {
-            font-size: 1.3em;
-            color: #2c3e50;
-            margin: 30px 0 15px 0;
-            font-weight: 600;
-        }
-
-        .project-detail-content p {
-            font-size: 1em;
-            line-height: 1.6;
-            color: #444;
-            margin-bottom: 15px;
-        }
-
-        .project-detail-content .project-links {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }
-
-        .project-detail-content .project-links a {
-            color: #3498db;
-            text-decoration: none;
-            margin-right: 20px;
-            font-weight: 500;
-        }
-
-        .project-detail-content .project-links a:hover {
-            text-decoration: underline;
-        }
-
-        /* Project Detail PDF Display */
+        /* Enhanced PDF Display - Full Screen */
         .project-detail-pdf-container {
-            width: 100%;
-            height: calc(100vh - 300px);
+            width: 100vw;
+            height: calc(100vh - 150px);
             margin-top: 20px;
             position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            background-color: #f8f9fa;
+            border-radius: 0;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #f5f5f5;
-            border-radius: 8px;
-            overflow: hidden;
+            justify-content: center;
         }
 
         .project-pdf-display {
@@ -641,60 +569,91 @@
             width: 100%;
             height: 100%;
             position: relative;
+            padding: 20px;
         }
 
         .pdf-canvas {
-            max-width: 90%;
-            max-height: 90%;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            border-radius: 4px;
+            max-width: 95%;
+            max-height: 95%;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            border-radius: 8px;
             background-color: white;
         }
 
-        .pdf-controls {
+        /* Side Navigation Arrows */
+        .pdf-nav-arrow {
             position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background-color: rgba(255,255,255,0.9);
-            padding: 10px 20px;
-            border-radius: 25px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .pdf-nav-button {
-            background-color: #3498db;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 120px;
+            background-color: rgba(0,0,0,0.3);
             color: white;
             border: none;
-            padding: 8px 12px;
-            border-radius: 6px;
             cursor: pointer;
-            font-size: 14px;
-            transition: background-color 0.3s ease;
+            font-size: 24px;
             display: flex;
             align-items: center;
-            gap: 5px;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+            border-radius: 0;
+            opacity: 0.7;
         }
 
-        .pdf-nav-button:hover:not(:disabled) {
-            background-color: #2980b9;
+        .pdf-nav-arrow:hover:not(:disabled) {
+            background-color: rgba(0,0,0,0.5);
+            opacity: 1;
+            transform: translateY(-50%) scale(1.05);
         }
 
-        .pdf-nav-button:disabled {
-            background-color: #bdc3c7;
+        .pdf-nav-arrow:disabled {
+            background-color: rgba(0,0,0,0.1);
+            color: rgba(255,255,255,0.3);
             cursor: not-allowed;
+            opacity: 0.3;
         }
 
+        .pdf-nav-arrow.prev {
+            left: 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .pdf-nav-arrow.next {
+            right: 0;
+            border-radius: 8px 0 0 8px;
+        }
+
+        .pdf-nav-arrow::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .pdf-nav-arrow.prev::before {
+            border-width: 12px 20px 12px 0;
+            border-color: transparent currentColor transparent transparent;
+        }
+
+        .pdf-nav-arrow.next::before {
+            border-width: 12px 0 12px 20px;
+            border-color: transparent transparent transparent currentColor;
+        }
+
+        /* Page Info Display */
         .pdf-page-info {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
             font-size: 14px;
-            color: #2c3e50;
             font-weight: 500;
-            min-width: 100px;
-            text-align: center;
+            z-index: 10;
         }
 
         .pdf-loading {
@@ -707,13 +666,13 @@
         }
 
         .pdf-loading-spinner {
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #3498db;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             animation: spin 1s linear infinite;
-            margin: 0 auto 15px;
+            margin: 0 auto 20px;
         }
 
         @keyframes spin {
@@ -729,20 +688,27 @@
             text-align: center;
             color: #e74c3c;
             background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            max-width: 400px;
+        }
+
+        .pdf-error h3 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
         }
 
         .pdf-error button {
             background-color: #3498db;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 6px;
             cursor: pointer;
-            margin-top: 15px;
+            margin-top: 20px;
             font-size: 14px;
+            transition: background-color 0.3s ease;
         }
 
         .pdf-error button:hover {
@@ -795,10 +761,6 @@
                 gap: 10px;
             }
 
-            .project-detail-content {
-                max-width: 100%;
-            }
-
             .publication {
                 flex-direction: column;
                 gap: 10px;
@@ -809,19 +771,16 @@
                 height: 150px;
             }
 
-            .pdf-controls {
-                bottom: 10px;
-                padding: 8px 15px;
+            .pdf-nav-arrow {
+                width: 50px;
+                height: 100px;
+                font-size: 20px;
             }
-            
-            .pdf-nav-button {
-                padding: 6px 10px;
-                font-size: 12px;
-            }
-            
+
             .pdf-page-info {
+                bottom: 20px;
                 font-size: 12px;
-                min-width: 80px;
+                padding: 8px 16px;
             }
         }
 
@@ -841,6 +800,12 @@
 
             .project-image {
                 height: 200px;
+            }
+
+            .pdf-nav-arrow {
+                width: 40px;
+                height: 80px;
+                font-size: 18px;
             }
         }
     </style>
@@ -1229,7 +1194,7 @@
 
                     <div class="project-card" onclick="openProject('robopinch')">
                         <div class="project-image">
-                            <div class="project-visual"></div>
+                            <img src="project7-robopinch.jpg" alt="RoboPinch">
                         </div>
                         <div class="project-info">
                             <h4>RoboPinch</h4>
@@ -1241,7 +1206,7 @@
 
                     <div class="project-card" onclick="openProject('curving')">
                         <div class="project-image">
-                            <div class="project-visual"></div>
+                            <img src="project8-curving.jpg" alt="Curving">
                         </div>
                         <div class="project-info">
                             <h4>Curving</h4>
@@ -1253,7 +1218,7 @@
 
                     <div class="project-card" onclick="openProject('tracing-the-walk')">
                         <div class="project-image">
-                            <div class="project-visual"></div>
+                            <img src="project9-tracing-the-walk.jpg" alt="Tracing the Walk">
                         </div>
                         <div class="project-info">
                             <h4>Tracing the Walk</h4>
@@ -1264,51 +1229,49 @@
                     </div>
                 </div>
             </section>
-
-            <!-- Individual Project Pages -->
-            <section id="project-detail" class="content-section hidden">
-                <div class="project-nav">
-                    <button onclick="closeProject()" class="back-button">← Back to Projects</button>
-                    <div class="project-nav-title" id="project-nav-title"></div>
-                </div>
-                
-                <div class="project-detail-pdf-container">
-                    <div class="project-pdf-display" id="pdf-display">
-                        <div class="pdf-loading" id="pdf-loading">
-                            <div class="pdf-loading-spinner"></div>
-                            <p>Loading PDF...</p>
-                        </div>
-                        
-                        <div class="pdf-canvas-container" id="pdf-canvas-container" style="display: none;">
-                            <canvas id="pdf-canvas" class="pdf-canvas"></canvas>
-                        </div>
-                        
-                        <div class="pdf-error" id="pdf-error" style="display: none;">
-                            <h3>Unable to load PDF</h3>
-                            <p>The PDF file could not be loaded. Please try again or download the file directly.</p>
-                            <button onclick="retryPdfLoad()">Retry</button>
-                        </div>
-                        
-                        <div class="pdf-controls" id="pdf-controls" style="display: none;">
-                            <button class="pdf-nav-button" id="prev-page" onclick="previousPage()">
-                                ← Previous
-                            </button>
-                            <div class="pdf-page-info" id="page-info">
-                                Page 1 of 1
-                            </div>
-                            <button class="pdf-nav-button" id="next-page" onclick="nextPage()">
-                                Next →
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </main>
 
         <footer>
             <p>&copy; 2024 Stella Zhujing Zhang. All rights reserved.</p>
         </footer>
     </div>
+
+    <!-- Individual Project Pages -->
+    <section id="project-detail" class="content-section hidden">
+        <div class="container">
+            <div class="project-nav">
+                <button onclick="closeProject()" class="back-button">← Back to Projects</button>
+                <div class="project-nav-title" id="project-nav-title"></div>
+            </div>
+        </div>
+        
+        <div class="project-detail-pdf-container">
+            <div class="project-pdf-display" id="pdf-display">
+                <div class="pdf-loading" id="pdf-loading">
+                    <div class="pdf-loading-spinner"></div>
+                    <p>Loading PDF...</p>
+                </div>
+                
+                <div class="pdf-canvas-container" id="pdf-canvas-container" style="display: none;">
+                    <canvas id="pdf-canvas" class="pdf-canvas"></canvas>
+                    
+                    <!-- Side Navigation Arrows -->
+                    <button class="pdf-nav-arrow prev" id="prev-page" onclick="previousPage()"></button>
+                    <button class="pdf-nav-arrow next" id="next-page" onclick="nextPage()"></button>
+                </div>
+                
+                <div class="pdf-error" id="pdf-error" style="display: none;">
+                    <h3>Unable to load PDF</h3>
+                    <p>The PDF file could not be loaded. Please try again or download the file directly.</p>
+                    <button onclick="retryPdfLoad()">Retry</button>
+                </div>
+                
+                <div class="pdf-page-info" id="page-info" style="display: none;">
+                    Page 1 of 1
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
     <script>
@@ -1366,13 +1329,13 @@
             const loadingEl = document.getElementById('pdf-loading');
             const canvasContainer = document.getElementById('pdf-canvas-container');
             const errorEl = document.getElementById('pdf-error');
-            const controlsEl = document.getElementById('pdf-controls');
+            const pageInfoEl = document.getElementById('page-info');
             
             // Show loading state
             loadingEl.style.display = 'block';
             canvasContainer.style.display = 'none';
             errorEl.style.display = 'none';
-            controlsEl.style.display = 'none';
+            pageInfoEl.style.display = 'none';
             
             try {
                 // Load PDF
@@ -1384,7 +1347,7 @@
                 // Hide loading and show canvas
                 loadingEl.style.display = 'none';
                 canvasContainer.style.display = 'flex';
-                controlsEl.style.display = 'flex';
+                pageInfoEl.style.display = 'block';
                 
                 // Render first page
                 await renderPage(1);
@@ -1407,8 +1370,8 @@
             
             // Calculate scale to fit container
             const container = document.getElementById('pdf-canvas-container');
-            const containerWidth = container.clientWidth * 0.9;
-            const containerHeight = container.clientHeight * 0.9;
+            const containerWidth = container.clientWidth * 0.85;
+            const containerHeight = container.clientHeight * 0.85;
             
             const viewport = page.getViewport({ scale: 1 });
             const scaleX = containerWidth / viewport.width;
@@ -1484,8 +1447,12 @@
 
         // Project detail functionality
         function openProject(projectId) {
-            // Hide projects section and show project detail
-            document.getElementById('projects').classList.add('hidden');
+            // Hide all main sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show project detail
             document.getElementById('project-detail').classList.remove('hidden');
             
             // Update navigation title
@@ -1499,8 +1466,10 @@
         }
 
         function closeProject() {
-            // Hide project detail and show projects section
+            // Hide project detail
             document.getElementById('project-detail').classList.add('hidden');
+            
+            // Show projects section
             document.getElementById('projects').classList.remove('hidden');
             
             // Clear PDF data
