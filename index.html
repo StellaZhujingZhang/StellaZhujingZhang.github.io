@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stella Zhujing Zhang - Personal Website</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
@@ -14,7 +19,11 @@
             background-color: #fdfdfd;
         }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
 
         /* Header */
         header {
@@ -24,206 +33,795 @@
             padding-bottom: 30px;
         }
 
-        h1 { font-size: 2.5em; font-weight: normal; margin-bottom: 10px; color: #2c3e50; }
+        h1 {
+            font-size: 2.5em;
+            font-weight: normal;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
 
-        .subtitle { font-size: 1.2em; color: #7f8c8d; margin-bottom: 10px; line-height: 1.4; }
+        .subtitle {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
 
-        .affiliation { font-size: 1em; color: #34495e; margin-bottom: 20px; }
+        .affiliation {
+            font-size: 1em;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
 
         /* Navigation */
-        nav { margin: 30px 0; }
+        nav {
+            margin: 30px 0;
+        }
+
         nav ul {
-            list-style: none; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
         }
+
         nav a {
-            color: #34495e; text-decoration: none; font-size: 1.1em; padding: 8px 16px; border-radius: 4px; transition: background-color 0.3s ease;
+            color: #34495e;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
         }
-        nav a:hover, nav a.active { background-color: #ecf0f1; }
+
+        nav a:hover, nav a.active {
+            background-color: #ecf0f1;
+        }
 
         /* Main Content */
-        .content-section { margin-bottom: 50px; }
-        .content-section.hidden { display: none; }
+        .content-section {
+            margin-bottom: 50px;
+        }
+
+        .content-section.hidden {
+            display: none;
+        }
 
         h2 {
-            font-size: 1.8em; margin-bottom: 25px; color: #2c3e50;
-            border-bottom: 1px solid #bdc3c7; padding-bottom: 10px;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 10px;
         }
 
         /* About Section */
-        .about-layout { display: grid; grid-template-columns: 200px 1fr; gap: 30px; margin-bottom: 30px; }
-        .profile-image {
-            width: 200px; height: 200px; border-radius: 50%; background-color: #ecf0f1;
-            display: flex; align-items: center; justify-content: center; font-size: 0.9em; color: #7f8c8d;
-            text-align: center; border: 3px solid #bdc3c7; overflow: hidden;
+        .about-layout {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
         }
-        .profile-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-        .about-content { font-size: 1.1em; line-height: 1.8; }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #ecf0f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            text-align: center;
+            border: 3px solid #bdc3c7;
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .about-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
 
         .contact-info {
-            background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 30px; grid-column: 1 / -1;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            grid-column: 1 / -1;
         }
-        .contact-info h3 { margin-bottom: 15px; color: #2c3e50; }
-        .contact-info p { margin-bottom: 8px; }
 
-        /* CV controls and viewer */
-        .cv-controls { margin-bottom: 20px; text-align: right; }
+        .contact-info h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .contact-info p {
+            margin-bottom: 8px;
+        }
+
+        /* CV PDF Display */
+        .cv-pdf-container {
+            width: 100%;
+            height: calc(100vh - 300px);
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .cv-pdf-embed {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .cv-controls {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
         .cv-download-button {
-            background-color: #3498db; color: white; padding: 10px 20px; border: none; border-radius: 6px;
-            font-size: 1em; cursor: pointer; text-decoration: none; display: inline-block; transition: background-color 0.3s ease;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
         }
-        .cv-download-button:hover { background-color: #2980b9; color: white; }
 
-        .cv-viewer { width: 100%; }
-        .cv-toolbar {
-            display: flex; align-items: center; gap: 8px; justify-content: flex-start; margin-bottom: 10px; flex-wrap: wrap;
+        .cv-download-button:hover {
+            background-color: #2980b9;
+            color: white;
         }
-        .cv-toolbar-sep { width: 1px; height: 18px; background: #e0e0e0; margin: 0 6px; }
-        .cv-btn {
-            background: #ecf0f1; border: 1px solid #d0d7de; border-radius: 6px;
-            padding: 6px 10px; cursor: pointer; transition: background .2s ease; font-size: 0.95em;
+
+        .cv-fallback {
+            text-align: center;
+            padding: 40px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 400px;
         }
-        .cv-btn:hover { background: #e6ebef; }
-        .cv-page-info-inline { font-size: 0.95em; color: #7f8c8d; min-width: 90px; text-align: center; }
 
-        .cv-canvas-wrap {
-            position: relative; width: 100%; height: calc(100vh - 320px);
-            background: #f8f9fa; border: 1px solid #ddd; border-radius: 6px;
-            display: flex; align-items: center; justify-content: center; overflow: hidden;
+        .cv-fallback a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            margin: 10px;
         }
-        .cv-canvas { background: white; box-shadow: 0 8px 32px rgba(0,0,0,0.12); border-radius: 6px; }
 
-        .cv-loading, .cv-error {
-            position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-            text-align: center; padding: 20px; background: white; border-radius: 8px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        .cv-fallback a:hover {
+            text-decoration: underline;
         }
-        .cv-error h3 { margin-bottom: 10px; }
 
-        /* Publications / Projects styling stays the same */
-        .cv-section { margin: 25px 0; padding-bottom: 20px; border-bottom: 1px solid #ecf0f1; }
-        .cv-section:last-of-type { border-bottom: none; }
-        .cv-section h3 { font-size: 1.2em; color: #2c3e50; margin-bottom: 15px; font-weight: 600; }
-        .cv-item { margin-bottom: 18px; padding-bottom: 15px; }
-        .cv-item:last-child { margin-bottom: 0; padding-bottom: 0; }
-        .cv-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; flex-wrap: wrap; }
-        .cv-title { font-weight: bold; color: #2c3e50; font-size: 1.1em; }
-        .cv-date { color: #7f8c8d; font-size: 0.95em; font-weight: normal; }
-        .cv-institution { color: #34495e; font-style: italic; margin-bottom: 8px; }
-        .cv-detail { color: #555; margin-bottom: 10px; line-height: 1.5; }
-        .cv-bullets { margin: 10px 0 0 20px; color: #555; }
-        .cv-bullets li { margin-bottom: 5px; line-height: 1.5; }
+        /* CV Sections */
+        .cv-section {
+            margin: 25px 0;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ecf0f1;
+        }
 
-        .publications-header { margin-bottom: 30px; }
-        .pub-section { margin-bottom: 40px; }
-        .pub-section h3 { font-size: 1.3em; color: #2c3e50; margin-bottom: 20px; font-weight: bold; }
-        .publication { display: flex; gap: 15px; margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid #ecf0f1; align-items: flex-start; }
-        .publication:last-child { border-bottom: none; }
-        .pub-image { flex-shrink: 0; width: 240px; height: 180px; overflow: hidden; border-radius: 3px; background-color: #f5f5f5; border: 1px solid #e0e0e0; }
-        .pub-image img { width: 100%; height: 100%; object-fit: cover; }
-        .pub-content { flex: 1; display: flex; flex-direction: column; gap: 3px; }
-        .pub-authors { margin-bottom: 3px; line-height: 1.4; font-size: 0.95em; }
-        .author-name { font-weight: bold; }
-        .pub-title { font-style: italic; margin-bottom: 3px; color: #2c3e50; font-size: 1em; line-height: 1.3; }
-        .pub-venue { color: #27ae60; margin-bottom: 3px; font-size: 0.9em; }
-        .pub-links { margin-top: 5px; font-size: 0.85em; }
-        .pub-links a { color: #3498db; text-decoration: none; margin-right: 10px; }
-        .pub-links a:hover { text-decoration: underline; }
-        .pub-doi { font-size: 0.85em; color: #7f8c8d; margin-bottom: 3px; }
-        .pub-doi a { color: #3498db; text-decoration: none; }
-        .pub-doi a:hover { text-decoration: underline; }
+        .cv-section:last-of-type {
+            border-bottom: none;
+        }
 
-        .project-category { margin-bottom: 40px; }
-        .project-category:last-child { margin-bottom: 0; }
-        .category-title { font-size: 1.2em; color: #2c3e50; margin-bottom: 20px; font-weight: bold; border-bottom: 1px solid #bdc3c7; padding-bottom: 8px; }
-        .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 25px; margin-bottom: 30px; }
-        .project-card { cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; border-radius: 4px; overflow: hidden; }
-        .project-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .project-image { width: 100%; height: 180px; overflow: hidden; position: relative; background-color: #f8f9fa; }
-        .project-image img { width: 100%; height: 100%; object-fit: cover; }
+        .cv-section h3 {
+            font-size: 1.2em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .cv-item {
+            margin-bottom: 18px;
+            padding-bottom: 15px;
+        }
+
+        .cv-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .cv-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+            flex-wrap: wrap;
+        }
+
+        .cv-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .cv-date {
+            color: #7f8c8d;
+            font-size: 0.95em;
+            font-weight: normal;
+        }
+
+        .cv-institution {
+            color: #34495e;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .cv-detail {
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .cv-bullets {
+            margin: 10px 0 0 20px;
+            color: #555;
+        }
+
+        .cv-bullets li {
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .skill-category h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .skill-category p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Publications Section */
+        .publications-header {
+            margin-bottom: 30px;
+        }
+
+        .pub-section {
+            margin-bottom: 40px;
+        }
+
+        .pub-section h3 {
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .publication {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #ecf0f1;
+            align-items: flex-start;
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+        }
+
+        .pub-image {
+            flex-shrink: 0;
+            width: 240px;
+            height: 180px;
+            overflow: hidden;
+            border-radius: 3px;
+            background-color: #f5f5f5;
+            border: 1px solid #e0e0e0;
+        }
+
+        .pub-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pub-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .pub-authors {
+            margin-bottom: 3px;
+            line-height: 1.4;
+            font-size: 0.95em;
+        }
+
+        .author-name {
+            font-weight: bold;
+        }
+
+        .pub-title {
+            font-style: italic;
+            margin-bottom: 3px;
+            color: #2c3e50;
+            font-size: 1em;
+            line-height: 1.3;
+        }
+
+        .pub-venue {
+            color: #27ae60;
+            margin-bottom: 3px;
+            font-size: 0.9em;
+        }
+
+        .pub-links {
+            margin-top: 5px;
+            font-size: 0.85em;
+        }
+
+        .pub-links a {
+            color: #3498db;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .pub-links a:hover {
+            text-decoration: underline;
+        }
+
+        .pub-doi {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            margin-bottom: 3px;
+        }
+
+        .pub-doi a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .pub-doi a:hover {
+            text-decoration: underline;
+        }
+
+        /* Projects Section */
+        .project-category {
+            margin-bottom: 40px;
+        }
+
+        .project-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-title {
+            font-size: 1.2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: bold;
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 8px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 25px;
+            margin-bottom: 30px;
+        }
+
+        .project-card {
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+            background-color: #f8f9fa;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .project-visual {
-            width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.3) 2px, transparent 2px),
                         radial-gradient(circle at 70% 20%, rgba(255,255,255,0.2) 1px, transparent 1px),
                         radial-gradient(circle at 20% 80%, rgba(255,255,255,0.4) 1.5px, transparent 1.5px),
                         radial-gradient(circle at 80% 70%, rgba(255,255,255,0.3) 2px, transparent 2px),
                         linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
         }
-        .project-info { padding: 12px 0; }
-        .project-info h4 { font-size: 1em; font-weight: 600; color: #2c3e50; margin: 0 0 3px 0; line-height: 1.3; }
-        .project-year { font-size: 0.8em; color: #7f8c8d; margin: 0 0 6px 0; font-weight: 500; }
-        .project-brief { font-size: 0.85em; color: #555; line-height: 1.3; margin: 0 0 6px 0; }
-        .project-tags { font-size: 0.75em; color: #e74c3c; font-weight: 500; }
 
-        .project-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #eee; }
-        .back-button { background: none; border: none; color: #3498db; font-size: 1em; cursor: pointer; padding: 8px 0; font-family: inherit; transition: color 0.3s ease; }
-        .back-button:hover { color: #2980b9; }
-        .project-nav-title { font-size: 1.1em; color: #7f8c8d; font-weight: 500; }
+        .project-info {
+            padding: 12px 0;
+        }
 
-        /* Enhanced PDF Display - Full Screen (Projects) */
+        .project-info h4 {
+            font-size: 1em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0 0 3px 0;
+            line-height: 1.3;
+        }
+
+        .project-year {
+            font-size: 0.8em;
+            color: #7f8c8d;
+            margin: 0 0 6px 0;
+            font-weight: 500;
+        }
+
+        .project-brief {
+            font-size: 0.85em;
+            color: #555;
+            line-height: 1.3;
+            margin: 0 0 6px 0;
+        }
+
+        .project-tags {
+            font-size: 0.75em;
+            color: #e74c3c;
+            font-weight: 500;
+        }
+
+        /* Project Detail Page */
+        .project-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .back-button {
+            background: none;
+            border: none;
+            color: #3498db;
+            font-size: 1em;
+            cursor: pointer;
+            padding: 8px 0;
+            font-family: inherit;
+            transition: color 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: #2980b9;
+        }
+
+        .project-nav-title {
+            font-size: 1.1em;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        /* Enhanced PDF Display - Full Screen */
         .project-detail-pdf-container {
-            width: 100vw; height: calc(100vh - 80px); margin-top: 10px; position: relative;
-            left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background-color: #f8f9fa;
-            border-radius: 0; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            width: 100vw;
+            height: calc(100vh - 80px);
+            margin-top: 10px;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            background-color: #f8f9fa;
+            border-radius: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-        .project-pdf-display { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
-        .pdf-canvas-container { flex: 1; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; position: relative; padding: 20px; }
-        .pdf-canvas { max-width: 95%; max-height: 95%; box-shadow: 0 8px 32px rgba(0,0,0,0.15); border-radius: 8px; background-color: white; }
 
-        /* Side Navigation Arrows (Projects) */
+        .project-pdf-display {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .pdf-canvas-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            padding: 20px;
+        }
+
+        .pdf-canvas {
+            max-width: 95%;
+            max-height: 95%;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            background-color: white;
+        }
+
+        /* Side Navigation Arrows */
         .pdf-nav-arrow {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            width: 60px; height: 120px; background-color: rgba(0,0,0,0.3); color: white; border: none; cursor: pointer;
-            font-size: 24px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; z-index: 10; border-radius: 0; opacity: 0.7;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 120px;
+            background-color: rgba(0,0,0,0.3);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+            border-radius: 0;
+            opacity: 0.7;
         }
-        .pdf-nav-arrow:hover:not(:disabled) { background-color: rgba(0,0,0,0.5); opacity: 1; transform: translateY(-50%) scale(1.05); }
-        .pdf-nav-arrow:disabled { background-color: rgba(0,0,0,0.1); color: rgba(255,255,255,0.3); cursor: not-allowed; opacity: 0.3; }
-        .pdf-nav-arrow.prev { left: 0; border-radius: 0 8px 8px 0; }
-        .pdf-nav-arrow.next { right: 0; border-radius: 8px 0 0 8px; }
-        .pdf-nav-arrow::before { content: ''; width: 0; height: 0; border-style: solid; }
-        .pdf-nav-arrow.prev::before { border-width: 12px 20px 12px 0; border-color: transparent currentColor transparent transparent; }
-        .pdf-nav-arrow.next::before { border-width: 12px 0 12px 20px; border-color: transparent transparent transparent currentColor; }
 
+        .pdf-nav-arrow:hover:not(:disabled) {
+            background-color: rgba(0,0,0,0.5);
+            opacity: 1;
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .pdf-nav-arrow:disabled {
+            background-color: rgba(0,0,0,0.1);
+            color: rgba(255,255,255,0.3);
+            cursor: not-allowed;
+            opacity: 0.3;
+        }
+
+        .pdf-nav-arrow.prev {
+            left: 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .pdf-nav-arrow.next {
+            right: 0;
+            border-radius: 8px 0 0 8px;
+        }
+
+        .pdf-nav-arrow::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .pdf-nav-arrow.prev::before {
+            border-width: 12px 20px 12px 0;
+            border-color: transparent currentColor transparent transparent;
+        }
+
+        .pdf-nav-arrow.next::before {
+            border-width: 12px 0 12px 20px;
+            border-color: transparent transparent transparent currentColor;
+        }
+
+        /* Page Info Display */
         .pdf-page-info {
-            position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
-            background-color: rgba(0,0,0,0.8); color: white; padding: 10px 20px; border-radius: 20px; font-size: 14px; font-weight: 500; z-index: 10;
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            z-index: 10;
         }
-        .pdf-loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #7f8c8d; }
-        .pdf-loading-spinner { border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; margin: 0 auto 20px; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        .pdf-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #7f8c8d;
+        }
+
+        .pdf-loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         .pdf-error {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #e74c3c; background-color: white; padding: 40px; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); max-width: 400px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #e74c3c;
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            max-width: 400px;
         }
-        .pdf-error h3 { margin-bottom: 15px; font-size: 1.2em; }
-        .pdf-error button { background-color: #3498db; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; margin-top: 20px; font-size: 14px; transition: background-color 0.3s ease; }
-        .pdf-error button:hover { background-color: #2980b9; }
+
+        .pdf-error h3 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .pdf-error button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .pdf-error button:hover {
+            background-color: #2980b9;
+        }
 
         /* Footer */
-        footer { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid #eee; color: #7f8c8d; font-size: 0.9em; }
-        #project-detail footer {
-            position: fixed; bottom: 0; left: 0; right: 0; margin-top: 0; padding: 10px 20px; background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px); border-top: 1px solid #eee; z-index: 1000;
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            color: #7f8c8d;
+            font-size: 0.9em;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .about-layout { grid-template-columns: 1fr; text-align: center; }
-            .profile-image { margin: 0 auto; }
-            .cv-header { flex-direction: column; align-items: flex-start; }
-            .cv-date { margin-top: 5px; }
-            .skills-grid { grid-template-columns: 1fr; gap: 20px; }
-            .projects-grid { grid-template-columns: 1fr; gap: 20px; }
-            .project-nav { flex-direction: column; align-items: flex-start; gap: 10px; }
-            .publication { flex-direction: column; gap: 10px; }
-            .pub-image { width: 100%; height: 150px; }
-            .pdf-nav-arrow { width: 50px; height: 100px; font-size: 20px; }
-            .pdf-page-info { bottom: 20px; font-size: 12px; padding: 8px 16px; }
+        /* Footer for project detail pages */
+        #project-detail footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin-top: 0;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid #eee;
+            z-index: 1000;
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-layout {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-image {
+                margin: 0 auto;
+            }
+
+            .cv-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cv-date {
+                margin-top: 5px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .project-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .publication {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .pub-image {
+                width: 100%;
+                height: 150px;
+            }
+
+            .pdf-nav-arrow {
+                width: 50px;
+                height: 100px;
+                font-size: 20px;
+            }
+
+            .pdf-page-info {
+                bottom: 20px;
+                font-size: 12px;
+                padding: 8px 16px;
+            }
+        }
+
         @media (max-width: 600px) {
-            .container { padding: 20px 15px; }
-            h1 { font-size: 2em; }
-            nav ul { flex-direction: column; gap: 15px; }
-            .project-image { height: 200px; }
-            .pdf-nav-arrow { width: 40px; height: 80px; font-size: 18px; }
+            .container {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .project-image {
+                height: 200px;
+            }
+
+            .pdf-nav-arrow {
+                width: 40px;
+                height: 80px;
+                font-size: 18px;
+            }
         }
     </style>
 </head>
@@ -233,7 +831,7 @@
             <h1>Stella Zhujing Zhang</h1>
             <p class="subtitle">PhD Candidate in Civil and Environmental Engineering<br>Designer | Researcher</p>
             <p class="affiliation">École Polytechnique Fédérale de Lausanne (EPFL)<br>Under supervision of Prof. Marilyne Andersen</p>
-
+            
             <nav>
                 <ul>
                     <li><a href="#about" class="nav-link active">About</a></li>
@@ -254,7 +852,7 @@
                     </div>
                     <div class="about-content">
                         <p>I am a PhD candidate in Civil and Environmental Engineering at École Polytechnique Fédérale de Lausanne (EPFL), working under the supervision of Prof. Marilyne Andersen. My research focuses on the intersection of biophilic design, light patterns, view quality, and human responses to built environments.</p>
-
+                        
                         <p>My doctoral thesis, "From Komorebi to Shading: View and Light Patterns Through Shading Systems with Spatial and Temporal Dynamics," explores how dynamic light and shadow patterns, combined with view filtering strategies, can enhance human well-being in built environments. I am particularly interested in developing comprehensive metrics for better understanding natural phenomena such as Komorebi, and investigating the design integration of nature-based features that enhance human well-being through empirical study of their relationship to human psychological and physiological responses.</p>
                     </div>
                 </div>
@@ -267,37 +865,130 @@
                 </div>
             </section>
 
-            <!-- CV Section (Updated viewer) -->
+            <!-- CV Section (kept simple; initial zoom fixed) -->
             <section id="cv" class="content-section hidden">
                 <div class="cv-controls">
                     <a href="cv.pdf" download class="cv-download-button">Download CV</a>
                 </div>
 
-                <div class="cv-viewer">
-                    <div class="cv-toolbar">
-                        <button id="cv-prev" class="cv-btn" title="Previous Page">◀</button>
-                        <span id="cv-page-info" class="cv-page-info-inline">Page 1 of 1</span>
-                        <button id="cv-next" class="cv-btn" title="Next Page">▶</button>
-
-                        <span class="cv-toolbar-sep"></span>
-
-                        <button id="cv-zoom-out" class="cv-btn" title="Zoom Out">−</button>
-                        <button id="cv-zoom-in" class="cv-btn" title="Zoom In">+</button>
-                        <button id="cv-fit-width" class="cv-btn" title="Fit to Width">Fit width</button>
-                        <button id="cv-fit-page" class="cv-btn" title="Fit to Page">Fit page</button>
+                <div class="cv-pdf-container">
+                    <!-- ⬇️ Initial zoom set here -->
+                    <iframe src="cv.pdf#view=FitH&zoom=page-width"
+                            class="cv-pdf-embed"
+                            title="Curriculum Vitae"></iframe>
+                    
+                    <!-- Fallback message -->
+                    <div class="cv-fallback" id="cv-fallback" style="display: none;">
+                        <p>If the PDF is not displaying properly, you can:</p>
+                        <p><a href="cv.pdf" target="_blank">Open CV in a new tab</a></p>
+                        <p>or</p>
+                        <p><a href="cv.pdf" download>Download CV</a></p>
                     </div>
+                </div>
 
-                    <div class="cv-canvas-wrap">
-                        <canvas id="cv-canvas" class="cv-canvas"></canvas>
-                        <div class="cv-loading" id="cv-loading" style="display:none;">
-                            <div class="pdf-loading-spinner"></div>
-                            <p>Loading CV...</p>
+                <!-- Text-based CV content as fallback -->
+                <div id="cv-text-content" style="display: none;">
+                    <div class="cv-section">
+                        <h3>Education</h3>
+                        <div class="cv-item">
+                            <div class="cv-header">
+                                <span class="cv-title">PhD in Civil and Environmental Engineering</span>
+                                <span class="cv-date">Sep 2022 - Present</span>
+                            </div>
+                            <div class="cv-institution">École Polytechnique Fédérale de Lausanne (EPFL) — Lausanne, Switzerland</div>
+                            <div class="cv-detail">Thesis: "From Komorebi to Shading: View and Light Patterns Through Shading Systems with Spatial and Temporal Dynamics"</div>
+                        </div>
+                        
+                        <div class="cv-item">
+                            <div class="cv-header">
+                                <span class="cv-title">Master of Science in Building Technology</span>
+                                <span class="cv-date">Sep 2020 - May 2022</span>
+                            </div>
+                            <div class="cv-institution">Massachusetts Institute of Technology (MIT) — Cambridge, MA, USA</div>
+                        </div>
+                        
+                        <div class="cv-item">
+                            <div class="cv-header">
+                                <span class="cv-title">Master of Architecture</span>
+                                <span class="cv-date">Sep 2016 - Feb 2020</span>
+                            </div>
+                            <div class="cv-institution">Massachusetts Institute of Technology (MIT) — Cambridge, MA, USA</div>
+                        </div>
+                        
+                        <div class="cv-item">
+                            <div class="cv-header">
+                                <span class="cv-title">Bachelor of Science in Architecture</span>
+                                <span class="cv-date">Sep 2011 - Apr 2015</span>
+                            </div>
+                            <div class="cv-institution">University of Michigan — Ann Arbor, MI, USA</div>
+                            <div class="cv-detail">Wallenberg Thesis Award, University Honor</div>
                         </div>
                     </div>
 
-                    <div class="cv-error" id="cv-error" style="display:none;">
-                        <h3>Unable to load CV</h3>
-                        <p>The PDF could not be loaded. Please try again or download the file.</p>
+                    <div class="cv-section">
+                        <h3>Research Experience</h3>
+                        <div class="cv-item">
+                            <div class="cv-header">
+                                <span class="cv-title">PhD Researcher</span>
+                                <span class="cv-date">2022 - Present</span>
+                            </div>
+                            <div class="cv-institution">EPFL Laboratory of Integrated Performance in Design (LIPID) — Lausanne, Switzerland</div>
+                            <ul class="cv-bullets">
+                                <li>Developing spatio-temporal metrics for Komorebi light patterns and exploring their relation to human responses</li>
+                                <li>Investigating shading systems for view filtering and indoor well-being</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cv-item">
+                            <div class="cv-header">
+                                <span class="cv-title">Research Assistant</span>
+                                <span class="cv-date">2020 - 2022</span>
+                            </div>
+                            <div class="cv-institution">MIT School of Architecture and Planning — Cambridge, MA, USA</div>
+                            <ul class="cv-bullets">
+                                <li>Researched neighborhood peak load and thermal comfort optimization</li>
+                                <li>Developed machine learning models as surrogates for physics-based simulations</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cv-item">
+                            <div class="cv-header">
+                                <span class="cv-title">Research Assistant</span>
+                                <span class="cv-date">2014 - 2015</span>
+                            </div>
+                            <div class="cv-institution">University of Michigan — Ann Arbor, MI, USA</div>
+                            <ul class="cv-bullets">
+                                <li>Developed robotic manipulation methods for fabric-formed architectural modeling</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="cv-section">
+                        <h3>Professional Experience</h3>
+                        <div class="cv-item">
+                            <div class="cv-header">
+                                <span class="cv-title">Architect</span>
+                                <span class="cv-date">2015 - 2016</span>
+                            </div>
+                            <div class="cv-institution">Myefski Architects — Evanston, IL, USA</div>
+                            <ul class="cv-bullets">
+                                <li>Contributed to residential and commercial design development</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="cv-section">
+                        <h3>Key Skills</h3>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>Research</h4>
+                                <p>Light simulation, EnergyPlus, Climate Studio, Machine learning, Statistical analysis, Image processing, Optimization, Human response assessment</p>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Design</h4>
+                                <p>Rhino, Grasshopper, Digital fabrication, Adobe Creative Suite, Physical prototyping, Parametric design</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -307,10 +998,10 @@
                 <div class="publications-header">
                     <h2>Academic Publications</h2>
                 </div>
-
+                
                 <div class="pub-section">
                     <h3>Journal Articles</h3>
-
+                    
                     <div class="publication">
                         <div class="pub-image">
                             <img src="pub1-biophilic-review.jpg" alt="Biophilic Review Publication">
@@ -368,7 +1059,7 @@
 
                 <div class="pub-section">
                     <h3>Conference Articles</h3>
-
+                    
                     <div class="publication">
                         <div class="pub-image">
                             <img src="pub4-komorebi-pilot.jpg" alt="Komorebi Pilot Study Publication">
@@ -420,7 +1111,7 @@
 
                 <div class="pub-section">
                     <h3>Thesis</h3>
-
+                    
                     <div class="publication">
                         <div class="pub-image">
                             <img src="pub7-komorebi-thesis.jpg" alt="Komorebi Thesis Publication">
@@ -431,7 +1122,9 @@
                             </div>
                             <div class="pub-title">"Komorebi: Embedding dappled sunlight in the built environment"</div>
                             <div class="pub-venue">Master of Architecture Thesis, Massachusetts Institute of Technology, Department of Architecture, February 2020</div>
-                            <div class="pub-doi">Advisor: Takehiko Nagakura</div>
+                            <div class="pub-doi">
+                                Advisor: Takehiko Nagakura
+                            </div>
                             <div class="pub-links">
                                 [<a href="#">BibTeX</a>] [<a href="#">PDF</a>] [<a href="https://dspace.mit.edu/handle/1721.1/129914">MIT DSpace</a>]
                             </div>
@@ -443,10 +1136,12 @@
             <!-- Projects Section -->
             <section id="projects" class="content-section hidden">
                 <h2>Design Projects</h2>
-
+                
                 <div class="projects-grid">
                     <div class="project-card" onclick="openProject('komorebi-thesis')">
-                        <div class="project-image"><img src="project1-komorebi-thesis.jpg" alt="Komorebi Thesis"></div>
+                        <div class="project-image">
+                            <img src="project1-komorebi-thesis.jpg" alt="Komorebi Thesis">
+                        </div>
                         <div class="project-info">
                             <h4>Komorebi: Embedding Dappled Sunlight</h4>
                             <p class="project-year">2020</p>
@@ -456,7 +1151,9 @@
                     </div>
 
                     <div class="project-card" onclick="openProject('bamboo-pavilion')">
-                        <div class="project-image"><img src="project2-bamboo-pavilion.jpg" alt="Bamboo Pavilion"></div>
+                        <div class="project-image">
+                            <img src="project2-bamboo-pavilion.jpg" alt="Bamboo Pavilion">
+                        </div>
                         <div class="project-info">
                             <h4>Bamboo Pavilion 山水田村</h4>
                             <p class="project-year">2018</p>
@@ -466,7 +1163,9 @@
                     </div>
 
                     <div class="project-card" onclick="openProject('shelter-people-plants')">
-                        <div class="project-image"><img src="project3-shelter-people-plants.jpg" alt="Shelter for People and Plants"></div>
+                        <div class="project-image">
+                            <img src="project3-shelter-people-plants.jpg" alt="Shelter for People and Plants">
+                        </div>
                         <div class="project-info">
                             <h4>Shelter for People and Plants</h4>
                             <p class="project-year">2018</p>
@@ -476,7 +1175,9 @@
                     </div>
 
                     <div class="project-card" onclick="openProject('reciproco-winery')">
-                        <div class="project-image"><img src="project4-reciproco-winery.jpg" alt="Reciproco Winery"></div>
+                        <div class="project-image">
+                            <img src="project4-reciproco-winery.jpg" alt="Reciproco Winery">
+                        </div>
                         <div class="project-info">
                             <h4>RECÍPROCO: Winery in Baja</h4>
                             <p class="project-year">2017</p>
@@ -486,7 +1187,9 @@
                     </div>
 
                     <div class="project-card" onclick="openProject('play-in-circle')">
-                        <div class="project-image"><img src="project5-play-in-circle.jpg" alt="Play in Circle"></div>
+                        <div class="project-image">
+                            <img src="project5-play-in-circle.jpg" alt="Play in Circle">
+                        </div>
                         <div class="project-info">
                             <h4>Play in Circle: YMCA Proposal</h4>
                             <p class="project-year">2017</p>
@@ -496,7 +1199,9 @@
                     </div>
 
                     <div class="project-card" onclick="openProject('landscape-painting')">
-                        <div class="project-image"><img src="project6-landscape-painting.jpg" alt="Chinese Landscape Painting"></div>
+                        <div class="project-image">
+                            <img src="project6-landscape-painting.jpg" alt="Chinese Landscape Painting">
+                        </div>
                         <div class="project-info">
                             <h4>意境·意思 Chinese Landscape Painting</h4>
                             <p class="project-year">2015-2019</p>
@@ -506,7 +1211,9 @@
                     </div>
 
                     <div class="project-card" onclick="openProject('robopinch')">
-                        <div class="project-image"><img src="project7-robopinch.jpg" alt="RoboPinch"></div>
+                        <div class="project-image">
+                            <img src="project7-robopinch.jpg" alt="RoboPinch">
+                        </div>
                         <div class="project-info">
                             <h4>RoboPinch</h4>
                             <p class="project-year">2014-2015</p>
@@ -516,7 +1223,9 @@
                     </div>
 
                     <div class="project-card" onclick="openProject('curving')">
-                        <div class="project-image"><img src="project8-curving.jpg" alt="Curving"></div>
+                        <div class="project-image">
+                            <img src="project8-curving.jpg" alt="Curving">
+                        </div>
                         <div class="project-info">
                             <h4>Curving</h4>
                             <p class="project-year">2017</p>
@@ -526,7 +1235,9 @@
                     </div>
 
                     <div class="project-card" onclick="openProject('tracing-the-walk')">
-                        <div class="project-image"><img src="project9-tracing-the-walk.jpg" alt="Tracing the Walk"></div>
+                        <div class="project-image">
+                            <img src="project9-tracing-the-walk.jpg" alt="Tracing the Walk">
+                        </div>
                         <div class="project-info">
                             <h4>Tracing the Walk</h4>
                             <p class="project-year">2016</p>
@@ -547,28 +1258,28 @@
                 <div class="project-nav-title" id="project-nav-title"></div>
             </div>
         </div>
-
+        
         <div class="project-detail-pdf-container">
             <div class="project-pdf-display" id="pdf-display">
                 <div class="pdf-loading" id="pdf-loading">
                     <div class="pdf-loading-spinner"></div>
                     <p>Loading PDF...</p>
                 </div>
-
+                
                 <div class="pdf-canvas-container" id="pdf-canvas-container" style="display: none;">
                     <canvas id="pdf-canvas" class="pdf-canvas"></canvas>
-
+                    
                     <!-- Side Navigation Arrows -->
                     <button class="pdf-nav-arrow prev" id="prev-page" onclick="previousPage()"></button>
                     <button class="pdf-nav-arrow next" id="next-page" onclick="nextPage()"></button>
                 </div>
-
+                
                 <div class="pdf-error" id="pdf-error" style="display: none;">
                     <h3>Unable to load PDF</h3>
                     <p>The PDF file could not be loaded. Please try again or download the file directly.</p>
                     <button onclick="retryPdfLoad()">Retry</button>
                 </div>
-
+                
                 <div class="pdf-page-info" id="page-info" style="display: none;">
                     Page 1 of 1
                 </div>
@@ -580,7 +1291,6 @@
         </footer>
     </section>
 
-    <!-- PDF.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
     <script>
         // Simple navigation functionality
@@ -591,32 +1301,37 @@
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-
+                    
                     // Remove active class from all nav links
                     navLinks.forEach(nl => nl.classList.remove('active'));
-
+                    
                     // Add active class to clicked link
                     this.classList.add('active');
-
+                    
                     // Hide all sections
                     sections.forEach(section => section.classList.add('hidden'));
-
+                    
                     // Show target section
                     const targetId = this.getAttribute('href').substring(1);
                     const targetSection = document.getElementById(targetId);
                     if (targetSection) {
                         targetSection.classList.remove('hidden');
-
-                        // If CV tab opened and not yet loaded, load it
-                        if (targetId === 'cv' && !cvPdf) {
-                            loadCV('cv.pdf');
+                        
+                        // If CV, check iframe fallback after a short delay
+                        if (targetId === 'cv') {
+                            setTimeout(() => {
+                                const iframe = document.querySelector('.cv-pdf-embed');
+                                if (!iframe || !iframe.contentDocument) {
+                                    document.getElementById('cv-fallback').style.display = 'block';
+                                }
+                            }, 800);
                         }
                     }
                 });
             });
         });
 
-        // ===== Projects PDF.js integration (unchanged) =====
+        // PDF.js integration for project detail viewer (unchanged)
         const pdfjsLib = window['pdfjs-dist/build/pdf'];
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
 
@@ -630,25 +1345,25 @@
             const canvasContainer = document.getElementById('pdf-canvas-container');
             const errorEl = document.getElementById('pdf-error');
             const pageInfoEl = document.getElementById('page-info');
-
+            
             loadingEl.style.display = 'block';
             canvasContainer.style.display = 'none';
             errorEl.style.display = 'none';
             pageInfoEl.style.display = 'none';
-
+            
             try {
                 const pdf = await pdfjsLib.getDocument(url).promise;
                 currentPdf = pdf;
                 totalPages = pdf.numPages;
                 currentPage = 1;
-
+                
                 loadingEl.style.display = 'none';
                 canvasContainer.style.display = 'flex';
                 pageInfoEl.style.display = 'block';
-
+                
                 await renderPage(1);
                 updatePageInfo();
-
+                
             } catch (error) {
                 console.error('Error loading PDF:', error);
                 loadingEl.style.display = 'none';
@@ -658,26 +1373,30 @@
 
         async function renderPage(pageNumber) {
             if (!currentPdf) return;
-
+            
             const page = await currentPdf.getPage(pageNumber);
             const canvas = document.getElementById('pdf-canvas');
             const context = canvas.getContext('2d');
-
+            
             const container = document.getElementById('pdf-canvas-container');
             const containerWidth = container.clientWidth * 0.85;
             const containerHeight = container.clientHeight * 0.85;
-
+            
             const viewport = page.getViewport({ scale: 1 });
             const scaleX = containerWidth / viewport.width;
             const scaleY = containerHeight / viewport.height;
             currentScale = Math.min(scaleX, scaleY);
-
+            
             const scaledViewport = page.getViewport({ scale: currentScale });
-
+            
             canvas.width = scaledViewport.width;
             canvas.height = scaledViewport.height;
-
-            const renderContext = { canvasContext: context, viewport: scaledViewport };
+            
+            const renderContext = {
+                canvasContext: context,
+                viewport: scaledViewport
+            };
+            
             await page.render(renderContext).promise;
         }
 
@@ -732,10 +1451,10 @@
             document.querySelectorAll('.content-section').forEach(section => {
                 section.classList.add('hidden');
             });
-
+            
             document.getElementById('project-detail').classList.remove('hidden');
             document.getElementById('project-nav-title').textContent = getProjectTitle(projectId);
-
+            
             const pdfUrl = getProjectPDF(projectId);
             const canvas = document.getElementById('pdf-canvas');
             canvas.setAttribute('data-current-url', pdfUrl);
@@ -745,7 +1464,7 @@
         function closeProject() {
             document.getElementById('project-detail').classList.add('hidden');
             document.getElementById('projects').classList.remove('hidden');
-
+            
             currentPdf = null;
             currentPage = 1;
             totalPages = 1;
@@ -781,91 +1500,7 @@
             };
             return pdfs[projectId] || '';
         }
-
-        // ===== CV viewer (fit-to-width by default) =====
-        let cvPdf = null, cvPage = 1, cvPages = 1, cvScale = 1, cvMode = 'fit-width'; // 'fit-width' | 'fit-page' | 'manual'
-
-        async function loadCV(url = 'cv.pdf') {
-            const loading = document.getElementById('cv-loading');
-            const error = document.getElementById('cv-error');
-            loading.style.display = 'block';
-            error.style.display = 'none';
-
-            try {
-                cvPdf = await pdfjsLib.getDocument(url).promise;
-                cvPages = cvPdf.numPages;
-                cvPage = 1;
-                loading.style.display = 'none';
-                updateCvPageInfo();
-                fitCvTo('fit-width');      // initial: fit to width
-                await renderCvPage(cvPage);
-            } catch (e) {
-                console.error(e);
-                loading.style.display = 'none';
-                error.style.display = 'block';
-            }
-        }
-
-        function fitCvTo(mode) { cvMode = mode; }
-
-        async function renderCvPage(pageNumber) {
-            if (!cvPdf) return;
-            const page = await cvPdf.getPage(pageNumber);
-
-            const canvas = document.getElementById('cv-canvas');
-            const ctx = canvas.getContext('2d');
-            const wrap = document.querySelector('.cv-canvas-wrap');
-
-            const base = page.getViewport({ scale: 1 });
-
-            if (cvMode === 'fit-width' || cvMode === 'fit-page') {
-                const availableW = wrap.clientWidth * 0.96;
-                const availableH = wrap.clientHeight * 0.96;
-                const sx = availableW / base.width;
-                const sy = availableH / base.height;
-                cvScale = (cvMode === 'fit-width') ? sx : Math.min(sx, sy);
-            }
-
-            const viewport = page.getViewport({ scale: cvScale });
-            canvas.width = viewport.width;
-            canvas.height = viewport.height;
-
-            await page.render({ canvasContext: ctx, viewport }).promise;
-            updateCvPageInfo();
-        }
-
-        function updateCvPageInfo() {
-            const info = document.getElementById('cv-page-info');
-            if (info) info.textContent = `Page ${cvPage} of ${cvPages}`;
-            document.getElementById('cv-prev').disabled = (cvPage <= 1);
-            document.getElementById('cv-next').disabled = (cvPage >= cvPages);
-        }
-
-        document.getElementById('cv-prev').addEventListener('click', async () => {
-            if (cvPage > 1) { cvPage--; await renderCvPage(cvPage); }
-        });
-        document.getElementById('cv-next').addEventListener('click', async () => {
-            if (cvPage < cvPages) { cvPage++; await renderCvPage(cvPage); }
-        });
-        document.getElementById('cv-zoom-in').addEventListener('click', async () => {
-            cvMode = 'manual'; cvScale *= 1.15; await renderCvPage(cvPage);
-        });
-        document.getElementById('cv-zoom-out').addEventListener('click', async () => {
-            cvMode = 'manual'; cvScale /= 1.15; await renderCvPage(cvPage);
-        });
-        document.getElementById('cv-fit-width').addEventListener('click', async () => {
-            fitCvTo('fit-width'); await renderCvPage(cvPage);
-        });
-        document.getElementById('cv-fit-page').addEventListener('click', async () => {
-            fitCvTo('fit-page'); await renderCvPage(cvPage);
-        });
-
-        window.addEventListener('resize', () => {
-            const cvSection = document.getElementById('cv');
-            if (!cvSection.classList.contains('hidden') && cvPdf) {
-                renderCvPage(cvPage);
-            }
-        });
     </script>
 </body>
 </html>
+```
