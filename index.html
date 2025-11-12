@@ -1288,17 +1288,7 @@
                 </div>
             </div>
 
-                    <div class="project-card" onclick="openProject('rethinking-objects')">
-                    <div class="project-image">
-                        <img src="project_object.jpg" alt="Rethinking Objects">
-                    </div>
-                    <div class="project-info">
-                        <h4>Rethinking Objects</h4>
-                        <p class="project-year">2012-2014</p>
-                        <p class="project-brief">A series of ceramic projects exploring relationships between objects through material experimentation, balance, and everyday use.</p>
-                        <div class="project-tags">Ceramics | Product Design | Material Exploration | University of Michigan
-                        </div>
-                </div>
+                   
                     <div class="project-card" onclick="openProject('rules-of-the-road')">
                 <div class="project-image">
                     <img src="project12-rules-of-the-road.jpg" alt="Rules of the Road Detroit">
@@ -1332,6 +1322,17 @@
                         <p class="project-brief">A vertical gallery design blurring indoor and outdoor spaces, where circulation through compression and release shapes the experience of viewing art.</p>
                         <div class="project-tags">Gallery Design | Spatial Experience | Circulation | University of Michigan</div>
                     </div>
+                </div>
+                     <div class="project-card" onclick="openProject('rethinking-objects')">
+                    <div class="project-image">
+                        <img src="project_object.jpg" alt="Rethinking Objects">
+                    </div>
+                    <div class="project-info">
+                        <h4>Rethinking Objects</h4>
+                        <p class="project-year">2012-2014</p>
+                        <p class="project-brief">A series of ceramic projects exploring relationships between objects through material experimentation, balance, and everyday use.</p>
+                        <div class="project-tags">Ceramics | Product Design | Material Exploration | University of Michigan
+                        </div>
                 </div>
                         
             </section>
@@ -1572,10 +1573,11 @@
                 'tracing-the-walk': 'Tracing the Walk',
                 'hidden-spring': 'Hidden Spring',
                 'catch-the-air': 'Catch the Air',
-                'rethinking-objects': 'Rethinking Objects',
                 'rules-of-the-road': 'Rules of the Road - Detroit',
                 'stroke-and-color': 'Stroke and Color',
-                'house-of-experience': 'House of Experience' 
+                'house-of-experience': 'House of Experience',
+                'rethinking-objects': 'Rethinking Objects'
+
             };
             return titles[projectId] || 'Project';
         }
@@ -1593,10 +1595,10 @@
                 'tracing-the-walk': 'project-tracing-the-walk.pdf',
                 'hidden-spring': 'project-hidden-spring.pdf',
                 'catch-the-air': 'project-catchair.pdf',
-                'rethinking-objects': 'project-rethinking-objects.pdf',
                 'rules-of-the-road': 'project-detroitroad.pdf',
                 'stroke-and-color': 'project-stroke-volumne.pdf',
-                'house-of-experience': 'project-houseofexperience.pdf' 
+                'house-of-experience': 'project-houseofexperience.pdf',
+                'rethinking-objects': 'project-rethinking-objects.pdf'
             };
             return pdfs[projectId] || '';
         }
